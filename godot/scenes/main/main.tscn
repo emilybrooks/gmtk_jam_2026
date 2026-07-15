@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://0l3hnr61jyxj"]
+
+[ext_resource type="Script" uid="uid://3lndx3j27h2u" path="res://scenes/main/main.gd" id="1_iuonh"]
+
+[node name="Main" type="Control" unique_id=229222510]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iuonh")
+
+[node name="ColorRectBackground" type="ColorRect" parent="." unique_id=1190336358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LabelTitle" type="Label" parent="." unique_id=965206371]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 776.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 128
+text = "Game Name"
+
+[node name="HBoxButtons" type="VBoxContainer" parent="." unique_id=659543486]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -116.5
+offset_right = 398.0
+offset_bottom = 116.5
+grow_vertical = 2
+
+[node name="ButtonStart" type="Button" parent="HBoxButtons" unique_id=1691246685]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="ButtonWindow" type="Button" parent="HBoxButtons" unique_id=1260442563]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Windowed"
+
+[node name="ButtonFullscreen" type="Button" parent="HBoxButtons" unique_id=153817803]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Fullscreen"
+
+[node name="ButtonQuit" type="Button" parent="HBoxButtons" unique_id=1869815749]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="LabelVersion" type="Label" parent="." unique_id=576216493]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -38.0
+offset_right = -18.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Ver.X.X.X"
+
+[connection signal="pressed" from="HBoxButtons/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="HBoxButtons/ButtonWindow" to="." method="_on_button_window_pressed"]
+[connection signal="pressed" from="HBoxButtons/ButtonFullscreen" to="." method="_on_button_fullscreen_pressed"]
+[connection signal="pressed" from="HBoxButtons/ButtonQuit" to="." method="_on_button_quit_pressed"]
