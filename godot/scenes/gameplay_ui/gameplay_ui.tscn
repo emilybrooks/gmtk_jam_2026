@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4w53ckwsl6j4" path="res://scenes/gameplay_ui/gameplay_ui.gd" id="1_60chn"]
 [ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="1_kgdaj"]
+[ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="3_avg3y"]
 
 [node name="GameplayUI" type="Control" unique_id=666351907]
 layout_mode = 3
@@ -28,3 +29,15 @@ offset_right = 89.0
 offset_bottom = 23.0
 text = "9999"
 script = ExtResource("1_kgdaj")
+
+[node name="LabelClock" type="Label" parent="." unique_id=460770966]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 41.0
+offset_right = 52.0
+offset_bottom = 64.0
+script = ExtResource("3_avg3y")
+
+[node name="Timer" type="Timer" parent="LabelClock" unique_id=2108542358]
+unique_name_in_owner = true
+wait_time = 75.0
