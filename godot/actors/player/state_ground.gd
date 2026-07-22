@@ -88,7 +88,8 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 		# player is above the floor, within snapping range
 		player.position.y = current_floor_y
 	
-	# else in the air
+	else:
+		return %StateAir
 	
 	return null
 	

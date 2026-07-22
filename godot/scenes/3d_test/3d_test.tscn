@@ -26,4 +26,4 @@ shadow_enabled = true
 [node name="3d_test_vmf" parent="." unique_id=1628889659 instance=ExtResource("1_26ull")]
 
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.367743, -3.1999998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -5.9604645e-08, -7.5837717)
