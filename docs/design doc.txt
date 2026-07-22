@@ -1,0 +1,52 @@
+Potential titles
+================
+- Use It or Lose It
+
+Premise
+=======
+This is a 3D platformer score attack game. Your goal is to find some kind of "goal object" in the level and bring it back to your starting point. Along the way, you can collect power-ups that grant you special abilities to get around faster (e.g., a jetpack) and "score objects" that increase your score. Much like Neon White, you earn medals based on your score at the end, so there's an incentive to keep playing for a higher score.
+
+The twist is that the whole time you're running around, a clock is constantly counting down. When the clock reaches 0, the game takes away one of your powers. If you've acquired a special power up, it takes that away first. But if you have no special power ups, it starts taking away core aspects of your moveset (e.g., your ability to jump, your ability to run, etc.). If the clock reaches 0 when all of your moveset is gone, you game over.
+
+Stuff we need to build
+======================
+- Player
+  - Run
+  - Jump
+  - Climb ladder? Are ladders annoying to do?
+  - Bounce on springs?
+  - Special abilities
+    - Double jump
+    - Jetpack w/ fuel meter?
+    - Hookshot?
+- Collectable power ups
+  - Clock
+  - Goal object
+  - Cards ("score object")
+    - A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+    - Diamond, Club, Heart, Spade? Maybe just one or two suits is enough
+    - You get bonus points if you ***count down*** while collecting them. e.g., K -> Q -> J -> 10 -> etc.
+      - If you keep the combo going all the way to Ace, you get a huge bonus
+  - Special ability power ups
+    - Double jump
+    - Jetpack?
+    - Hookshot?
+- Starting and goal zone
+  - I'm thinking it's basically just a semi-transparent cylinder
+  - You start in the center, and until you leave, the clock doesn't count down. This gives the player time to look around and plan before they go
+  - If the player has the goal object, the cylinder changes color. Entering the cylinder at this point ends the game
+- Some system for managing time and player abilities
+  - If the player has a special ability, we take that away first
+  - Probably want to take away more superfluous abilities first, leave running and jumping until the very end
+  - The amount of time that the player gets before we take something should decrease the longer they've been playing so there's an incentive to leave the level
+- Some system for managing score
+- UI elements
+  - Clock (probably a few different states for this)
+  - Score meter
+  - Fuel meter for the jetpack
+  - Crosshair for the hookshot
+  - Medal display
+  - Par score display for medals
+  - Level timer (counts up as long as the player is in the level)
+  - Controls? Tutorial? Idk man definitely cuttable if we run out of time
+- The level itself
