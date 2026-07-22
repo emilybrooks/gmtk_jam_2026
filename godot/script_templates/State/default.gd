@@ -12,7 +12,7 @@ func input(event: InputEvent) -> State:
 func update(delta: float) -> State:
 	return null
 	
-func update_physics(delta: float, space_state: PhysicsDirectSpaceState2D) -> State:
+func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> State:
 	return null
 	
 func exit() -> void:

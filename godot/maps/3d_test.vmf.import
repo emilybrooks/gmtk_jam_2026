@@ -14,4 +14,4 @@ dest_files=["res://.godot/imported/3d_test.vmf-a7f430a00a1ef49c9d1cf060cdf043de.
 
 material_directory="res://assets/materials"
 hammer_units_per_meter=40
-collision_type=0
+collision_type=1

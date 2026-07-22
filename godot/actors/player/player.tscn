@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbatsqa3sfd24" path="res://actors/player/player.gd" id="1_nvxhs"]
 [ext_resource type="Script" uid="uid://cxo8sm5e6jg6v" path="res://actors/player/state_ground.gd" id="2_ilk7j"]
+[ext_resource type="Script" uid="uid://bq2acl64c8uk8" path="res://actors/player/camera.gd" id="3_ax26v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosur"]
 albedo_color = Color(1, 0.22352941, 1, 1)
@@ -23,4 +24,6 @@ metadata/_custom_type_script = "uid://4g4s56dvoueh"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 mesh = SubResource("CapsuleMesh_llj44")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=306751851]
+[node name="Camera" type="Camera3D" parent="." unique_id=306751851]
+unique_name_in_owner = true
+script = ExtResource("3_ax26v")

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		change_state(new_state)
 
 func _physics_process(delta: float) -> void:
-	var space_state = get_world_2d().direct_space_state
+	var space_state = get_world_3d().direct_space_state
 	var new_state = state.update_physics(delta, space_state)
 	if new_state:
 		change_state(new_state)
