@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cytorrbhmk76s"]
+
+[ext_resource type="Texture2D" uid="uid://dueikxv7lqcpy" path="res://addons/vmf_import/debugempty.png" id="1_3e422"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_3e422")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://klelfgwrcbhd"]
+
+[ext_resource type="Script" uid="uid://bbatsqa3sfd24" path="res://actors/player/player.gd" id="1_nvxhs"]
+[ext_resource type="Script" uid="uid://cxo8sm5e6jg6v" path="res://actors/player/state_ground.gd" id="2_ilk7j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosur"]
+albedo_color = Color(1, 0.22352941, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_llj44"]
+material = SubResource("StandardMaterial3D_wosur")
+radius = 0.3
+height = 1.6
+
+[node name="Player" type="Node3D" unique_id=749876566]
+script = ExtResource("1_nvxhs")
+
+[node name="StateGround" type="Node" parent="." unique_id=518057061]
+unique_name_in_owner = true
+script = ExtResource("2_ilk7j")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1308587356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CapsuleMesh_llj44")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=306751851]

@@ -1,0 +1,17 @@
+[remap]
+
+importer="vmfimport"
+type="PackedScene"
+uid="uid://dwxh71bmq8l41"
+path="res://.godot/imported/3d_test.vmf-a7f430a00a1ef49c9d1cf060cdf043de.tscn"
+
+[deps]
+
+source_file="res://maps/3d_test.vmf"
+dest_files=["res://.godot/imported/3d_test.vmf-a7f430a00a1ef49c9d1cf060cdf043de.tscn"]
+
+[params]
+
+material_directory="res://assets/materials"
+hammer_units_per_meter=40
+collision_type=0
