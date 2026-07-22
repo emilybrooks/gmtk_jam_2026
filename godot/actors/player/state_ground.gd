@@ -21,6 +21,9 @@ const WALL_CHECK_HEIGHT = 0.41 # 16 hammer units
 ## how far away to push the player away from walls
 const WALL_CHECK_RADIUS: float = 0.4
 
+# meters per second
+const JUMP_INITIAL_SPEED: float = 6.0
+
 @onready var player := owner
 
 func _ready() -> void:
@@ -33,6 +36,10 @@ func update(delta: float) -> State:
 	return null
 	
 func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> State:
+	if Input.is_action_pressed("jump"):
+		player.velocity.y = JUMP_INITIAL_SPEED
+		return %StateAir
+	
 	player.previous_position = player.position
 	
 	# get velocity
