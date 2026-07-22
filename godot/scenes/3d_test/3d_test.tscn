@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cr12eox6kv16l"]
 
 [ext_resource type="PackedScene" uid="uid://dwxh71bmq8l41" path="res://maps/3d_test.vmf" id="1_26ull"]
+[ext_resource type="Script" uid="uid://ktew6u24xwse" path="res://scenes/3d_test/3d_test.gd" id="1_bisgm"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
+[ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/score_item/score_item.tscn" id="3_12nre"]
+[ext_resource type="PackedScene" uid="uid://cy21wx0geecav" path="res://scenes/gameplay_ui/gameplay_ui.tscn" id="4_nmxf4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +18,7 @@ background_mode = 2
 sky = SubResource("Sky_12nre")
 
 [node name="3dTest" type="Node3D" unique_id=2087464167]
+script = ExtResource("1_bisgm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693988280]
 environment = SubResource("Environment_nmxf4")
@@ -27,3 +31,11 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -5.9604645e-08, -7.5837717)
+
+[node name="ScoreItem" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.781777)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927264342]
+
+[node name="GameplayUI" parent="CanvasLayer" unique_id=666351907 instance=ExtResource("4_nmxf4")]
+unique_name_in_owner = true

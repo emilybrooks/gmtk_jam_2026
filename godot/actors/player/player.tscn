@@ -13,6 +13,10 @@ material = SubResource("StandardMaterial3D_wosur")
 radius = 0.3
 height = 1.6
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lsqbn"]
+radius = 0.3
+height = 1.6
+
 [node name="Player" type="Node3D" unique_id=749876566]
 script = ExtResource("1_nvxhs")
 
@@ -33,3 +37,10 @@ mesh = SubResource("CapsuleMesh_llj44")
 [node name="Camera" type="Camera3D" parent="." unique_id=306751851]
 unique_name_in_owner = true
 script = ExtResource("3_ax26v")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1056448944]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1935097626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_lsqbn")

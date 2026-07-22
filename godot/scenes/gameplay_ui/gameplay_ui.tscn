@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cy21wx0geecav"]
+
+[ext_resource type="Script" uid="uid://b4w53ckwsl6j4" path="res://scenes/gameplay_ui/gameplay_ui.gd" id="1_60chn"]
+[ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="1_kgdaj"]
+
+[node name="GameplayUI" type="Control" unique_id=666351907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60chn")
+
+[node name="LabelScoreText" type="Label" parent="." unique_id=1611908890]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 59.0
+offset_bottom = 34.0
+text = "Score:"
+
+[node name="LabelScoreNumber" type="Label" parent="LabelScoreText" unique_id=2028649994]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 49.0
+offset_right = 89.0
+offset_bottom = 23.0
+text = "9999"
+script = ExtResource("1_kgdaj")
