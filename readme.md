@@ -1,7 +1,7 @@
 # GMTK Jam 2026
 
 ## Building (Windows)
-1. Install [Godot 4.7-stable Standard](https://godotengine.org/download/archive/4.7-stable/) and add it to the path. You can do this manually, or [install Godot with Scoop](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html#path
+1. Install [Godot 4.7.1-stable Standard](https://godotengine.org/download/archive/4.7.1-stable/) and add it to the path. You can do this manually, or [install Godot with Scoop](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html#path
 ), which will automatically add it to the path.
 
 2. With the project open, go to `Editor > Manage Export Templates...`
