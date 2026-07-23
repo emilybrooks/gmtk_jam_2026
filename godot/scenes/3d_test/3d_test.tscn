@@ -147,12 +147,14 @@ theme_override_font_sizes/font_size = 48
 text = "Retry"
 
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
 
 [connection signal="game_init" from="." to="Player" method="_on_game_init"]
+[connection signal="game_init" from="." to="CanvasLayer/Control/LabelScore" method="_on_game_init"]
 [connection signal="game_init" from="." to="Gate" method="_on_game_init"]
 [connection signal="game_start" from="." to="Player" method="_on_game_start"]
 [connection signal="victory" from="." to="Player" method="_on_victory"]
