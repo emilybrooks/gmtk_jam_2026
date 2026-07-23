@@ -12,9 +12,10 @@ var wall_yaw: float
 var wall_normal: Vector3
 
 @onready var spawn_position = position
+@onready var ability_double_jump := Ability.new("Double Jump", %PlayerStar.label_3d_double_jump)
 @onready var ability_jump := Ability.new("Jump", %PlayerStar.label_3d_jump)
 @onready var ability_float := Ability.new("Float", %PlayerStar.label_3d_float)
-@onready var ability_array: Array[Ability] = [ability_jump, ability_float]
+@onready var ability_array: Array[Ability] = [ability_double_jump, ability_jump, ability_float]
 
 # the angle of walls can be determined by the y component of their normal
 ## Degrees.
