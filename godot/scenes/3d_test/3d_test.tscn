@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwxh71bmq8l41" path="res://maps/3d_test.vmf" id="1_26ull"]
 [ext_resource type="Script" uid="uid://ktew6u24xwse" path="res://scenes/3d_test/3d_test.gd" id="1_bisgm"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
+[ext_resource type="Script" uid="uid://b3mstoxn5550s" path="res://scenes/3d_test/state_game_init.gd" id="2_ef6qc"]
 [ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/goal_item/goal_item.tscn" id="3_12nre"]
 [ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="5_5lrt7"]
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/gate/gate.tscn" id="6_2xvf8"]
@@ -23,6 +24,11 @@ sky = SubResource("Sky_12nre")
 [node name="3dTest" type="Node3D" unique_id=2087464167]
 script = ExtResource("1_bisgm")
 
+[node name="StateGameInit" type="Node" parent="." unique_id=711732574]
+unique_name_in_owner = true
+script = ExtResource("2_ef6qc")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693988280]
 environment = SubResource("Environment_nmxf4")
 
@@ -33,7 +39,7 @@ shadow_enabled = true
 [node name="3d_test_vmf" parent="." unique_id=1628889659 instance=ExtResource("1_26ull")]
 
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -3.1999998, -16.919056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -3.1999998, -3.1792865)
 
 [node name="GoalItem1" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.781777)

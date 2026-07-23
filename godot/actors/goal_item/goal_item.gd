@@ -9,4 +9,12 @@ func _ready() -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	goal_item_collected.emit(number)
-	queue_free()
+	disable()
+
+func enable() -> void:
+	visible = true
+	%Area3D.set_collision_mask_value(2, true)
+	
+func disable() -> void:
+	visible = false
+	%Area3D.set_collision_mask_value(2, false)
