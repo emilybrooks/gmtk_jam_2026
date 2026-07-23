@@ -17,13 +17,25 @@ const FLOOR_CHECK_END = 0.1
 ## meters per second per second, should be multiplied by delta
 const GRAVITY: float = -9.8
 
+# meters per second
+const DOUBLE_JUMP_INITIAL_SPEED: float = 6.0
+
+# Once the player has double-jumped once in the air, they shouldn't be able to double-jump again
+var has_double_jumped = false
+
 func _ready() -> void:
 	pass
 
 func enter() -> void:
-	pass
+	has_double_jumped = false
 
 func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> State:
+	if (player.velocity.y < 3.0):
+		if Input.is_action_pressed("jump") and player.ability_double_jump.owned and !has_double_jumped:
+			print("jump pressed in air")
+			player.velocity.y = DOUBLE_JUMP_INITIAL_SPEED
+			has_double_jumped = true
+	
 	player.previous_position = player.position
 
 	player.velocity -= Vector3.DOWN * GRAVITY * delta

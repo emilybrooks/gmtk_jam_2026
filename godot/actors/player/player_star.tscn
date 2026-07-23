@@ -42,3 +42,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 billboard = 1
 texture = ExtResource("2_po8qk")
+
+[node name="PivotDoubleJump" type="Node3D" parent="Sprite3DStar" unique_id=1062021510]
+unique_name_in_owner = true
+
+[node name="Label3DDoubleJump" type="Label3D" parent="Sprite3DStar/PivotDoubleJump" unique_id=716544259]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+billboard = 1
+text = "Double Jump"
+
+[node name="Sprite3DDoubleJump" type="Sprite3D" parent="Sprite3DStar/PivotDoubleJump" unique_id=518385795]
+visible = false
