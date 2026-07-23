@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://ktew6u24xwse" path="res://scenes/3d_test/3d_test.gd" id="1_bisgm"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
 [ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/score_item/score_item.tscn" id="3_12nre"]
-[ext_resource type="PackedScene" uid="uid://cy21wx0geecav" path="res://scenes/gameplay_ui/gameplay_ui.tscn" id="4_nmxf4"]
+[ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="5_5lrt7"]
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/goal/goal.tscn" id="6_2xvf8"]
+[ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,10 +39,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.7817
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927264342]
 
-[node name="GameplayUI" parent="CanvasLayer" unique_id=666351907 instance=ExtResource("4_nmxf4")]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=867845922]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelScore" type="Label" parent="CanvasLayer/Control" unique_id=1341350845]
 unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 62.0
+offset_bottom = 37.0
+text = "Score: 9999"
+script = ExtResource("5_5lrt7")
+
+[node name="LabelClock" type="Label" parent="CanvasLayer/Control" unique_id=1788328641]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 35.0
+offset_right = 62.0
+offset_bottom = 58.0
+text = "0 seconds until"
+script = ExtResource("6_4trkf")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control/LabelClock" unique_id=504285425]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="LabelGoalDebug" type="Label" parent="CanvasLayer/Control" unique_id=764734263]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 15.0
+offset_top = 60.0
+offset_right = 55.0
+offset_bottom = 83.0
+text = "Goal state: Unknown"
 
 [node name="Goal" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 
-[connection signal="goal_entered" from="Goal" to="CanvasLayer/GameplayUI" method="_on_goal_goal_entered"]
+[connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]

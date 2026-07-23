@@ -11,6 +11,10 @@ var wall_yaw: float
 ## normal of the wall the player is colliding with
 var wall_normal: Vector3
 
+var ability_float := Ability.new("Float", true)
+var ability_jump := Ability.new("Jump", true)
+var ability_array: Array[Ability] = [ability_jump, ability_float]
+
 # the angle of walls can be determined by the y component of their normal
 ## Degrees.
 const WALL_MIN_ANGLE: float = 60
@@ -187,3 +191,9 @@ func prevent_tunneling(wall_check_height: float, space_state) -> void:
 		position.x = wall_raycast.endpos.x
 		position.z = wall_raycast.endpos.z
 		
+func _on_timer_timeout():
+	# disable the highest priority ability
+	for ability in ability_array:
+		if ability.owned == true:
+			ability.owned = false
+			break

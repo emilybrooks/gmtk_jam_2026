@@ -11,3 +11,7 @@ func update_label() -> void:
 func add_points(points_to_add: int) -> void:
 	score += points_to_add
 	update_label()
+
+func _on_score_item_collected() -> void:
+	%LabelScore.add_points(1)
+	
