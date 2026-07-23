@@ -41,7 +41,10 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 	var end: Vector3 = player.position + Vector3.DOWN * FLOOR_CHECK_END
 	var floor_raycast := Raycast3DHelper.new(start, end, space_state)
 	if floor_raycast.fraction != 1.0:
-		return %StateGround
+		if player.current_ability_count() <= 0:
+			return %StateFlop
+		else:
+			return %StateGround
 	
 	return null
 	
