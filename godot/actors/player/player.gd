@@ -10,7 +10,7 @@ const DECELERATION = 1.0 / 3.0
 const ACCELERATION = 2.0 / 3.0
 
 ## meters per second
-const SPRING_INITIAL_SPEED = 15.0
+const SPRING_INITIAL_SPEED = 16.0
 
 var move_vector := Vector2.ZERO
 var state: State

@@ -29,5 +29,8 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1na2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.314812, 17.6, -15.513489)
 
-[node name="Spring" parent="." unique_id=315667143 instance=ExtResource("3_1na2r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.267906, 4.769082, -10.700437)
+[node name="Spring2" parent="." unique_id=1086767503 instance=ExtResource("3_1na2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.102188, 0, 9.241097)
+
+[node name="Spring3" parent="." unique_id=1809179519 instance=ExtResource("3_1na2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.483469, 9.569078, 9.744684)
