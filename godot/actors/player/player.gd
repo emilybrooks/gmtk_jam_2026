@@ -9,8 +9,17 @@ const DECELERATION = 1.0 / 3.0
 # meters per second per second
 const ACCELERATION = 2.0 / 3.0
 
-## meters per second
+# meters per second
 const SPRING_INITIAL_SPEED = 16.0
+
+# meters per second
+const UPDRAFT_TARGET_SPEED = 1.75
+
+# meters per second per second
+const UPDRAFT_FALLING_ACCEL = 1.0
+
+# meters per second per second
+const UPDRAFT_RISING_ACCEL = 1.0 / 2.0
 
 var move_vector := Vector2.ZERO
 var state: State
@@ -48,6 +57,10 @@ func _ready() -> void:
 	var springs = get_tree().get_nodes_in_group("Spring")
 	for spring in springs:
 		spring.spring_touched.connect(_on_spring_spring_touched)
+	
+	var updrafts = get_tree().get_nodes_in_group("Updraft")
+	for updraft in updrafts:
+		updraft.player_in_updraft.connect(_on_updraft_player_in_updraft)
 		
 	change_state(%StateGround)
 
@@ -264,3 +277,20 @@ func _on_victory() -> void:
 func _on_spring_spring_touched() -> void:
 	change_state(%StateAir)
 	velocity.y = SPRING_INITIAL_SPEED
+	
+func _on_updraft_player_in_updraft() -> void:
+	change_state(%StateAir)
+	
+	# Gradually move the player's y-velocity to a specific slow value
+	var current_velocity = Vector3(0, velocity.y, 0)
+	var target_velocity = Vector3(0, UPDRAFT_TARGET_SPEED, 0)
+	
+	# If the player is falling into an updraft, it feels weird if the updraft doesn't immediately
+	# push back on them. However, once they're no longer falling, we want the acceleration to be
+	# painfully slow to make the updraft feel suboptimal.
+	if (velocity.y < 0.0):
+		current_velocity = current_velocity.move_toward(target_velocity, UPDRAFT_FALLING_ACCEL)
+	else:
+		current_velocity = current_velocity.move_toward(target_velocity, UPDRAFT_RISING_ACCEL)
+	
+	velocity.y = current_velocity.y
