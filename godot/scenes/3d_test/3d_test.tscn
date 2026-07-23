@@ -35,8 +35,24 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -3.1999998, -16.919056)
 
-[node name="GoalItem" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
+[node name="GoalItem1" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.781777)
+
+[node name="GoalItem2" parent="." unique_id=64204515 instance=ExtResource("3_12nre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -1.9726422)
+number = 2
+
+[node name="GoalItem3" parent="." unique_id=1636497081 instance=ExtResource("3_12nre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.493719, -2.6999998, -1.9726422)
+number = 3
+
+[node name="GoalItem4" parent="." unique_id=251809194 instance=ExtResource("3_12nre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.493719, -2.6999998, -3.6928706)
+number = 4
+
+[node name="GoalItem5" parent="." unique_id=819777443 instance=ExtResource("3_12nre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.370273, -2.6999998, -2.8130589)
+number = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927264342]
 
@@ -98,7 +114,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
 
-[connection signal="goal_item_collected" from="GoalItem" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem3" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem4" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem5" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
 [connection signal="gate_ready" from="Gate" to="." method="_on_gate_gate_ready"]

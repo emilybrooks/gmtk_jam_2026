@@ -10,6 +10,7 @@ enum State {
 }
 
 var current_state = State.Disabled
+var collected_goals = []
 
 signal gate_ready
 signal gate_complete
@@ -30,10 +31,16 @@ func set_to_complete() -> void:
 	current_state = State.Complete
 	gate_complete.emit()
 
+func is_goal_ready() -> bool:
+	# This is kind of dumb but it should work assuming we always put exactly five goals in the level
+	return collected_goals.size() == 5
+
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	gate_entered.emit()
 	if current_state == State.Ready:
 		set_to_complete()
 
-func _on_goal_item_goal_item_collected() -> void:
-	set_to_ready()
+func _on_goal_item_goal_item_collected(number: int) -> void:
+	collected_goals.append(number)
+	if (is_goal_ready()):
+		set_to_ready()
