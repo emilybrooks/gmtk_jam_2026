@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="5_5lrt7"]
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/goal/goal.tscn" id="6_2xvf8"]
 [ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
+[ext_resource type="PackedScene" uid="uid://cw7qctug37ik2" path="res://actors/clock_item/clock_item.tscn" id="8_4trkf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -94,7 +95,11 @@ vertical_alignment = 2
 [node name="Goal" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 
+[node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
+
 [connection signal="score_item_collected" from="ScoreItem" to="Goal" method="_on_score_item_score_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="goal_complete" from="Goal" to="." method="_on_goal_goal_complete"]
 [connection signal="goal_ready" from="Goal" to="." method="_on_goal_goal_ready"]
+[connection signal="clock_item_collected" from="ClockItem" to="CanvasLayer/Control/LabelClock" method="_on_clock_item_clock_item_collected"]
