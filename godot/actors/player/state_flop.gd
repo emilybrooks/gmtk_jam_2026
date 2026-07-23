@@ -12,9 +12,6 @@ const FLOOR_CHECK_HEIGHT = 1.0
 ## meters. where the floor check raycast will end
 const FLOOR_LOWER_LIMIT = -1000.0
 
-## how high the player is allowed to be above the floor without falling. eg, going down a ramp should snap you to the floor
-const FLOOR_SNAP_HEIGHT = 0.41
-
 ## how high above the ground to check for walls. influences how tall of a step you can climb up
 const WALL_CHECK_HEIGHT = 0.41 # 16 hammer units
 
@@ -54,9 +51,6 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 	else:
 		player.velocity = new_velocity
 	
-	# move
-	player.position = player.position + player.velocity * delta
-	
 	# wall collision
 	player.prevent_tunneling(WALL_CHECK_HEIGHT, space_state)
 	var map_collision_faces: PackedVector3Array = get_tree().get_nodes_in_group("MapCollision")[0].get_child(0).shape.get_faces()
@@ -74,9 +68,12 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 		# player is below the floor
 		player.position.y = current_floor_y
 	
-	# always jump
-	player.velocity.y = JUMP_INITIAL_SPEED
-	return %StateAir
+	if new_velocity.length() != 0.0:
+		# jump if the player is moving
+		player.velocity.y = JUMP_INITIAL_SPEED
+		return %StateAir
+	else:
+		return null
 	
 func exit() -> void:
 	pass
