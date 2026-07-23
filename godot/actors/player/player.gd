@@ -206,6 +206,9 @@ func _on_timer_timeout():
 		if ability.owned == true:
 			ability.disable()
 			break
+	
+	#if current_ability_count() == 0:
+		#change_state(%StateFlop)
 
 func _on_game_init() -> void:
 	position = spawn_position
