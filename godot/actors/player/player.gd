@@ -11,9 +11,9 @@ var wall_yaw: float
 ## normal of the wall the player is colliding with
 var wall_normal: Vector3
 
-var ability_float := Ability.new("Float", true)
-var ability_jump := Ability.new("Jump", true)
-var ability_array: Array[Ability] = [ability_jump, ability_float]
+@onready var ability_jump := Ability.new("Jump", true, %PlayerStar.label_3d_jump)
+@onready var ability_float := Ability.new("Float", true, %PlayerStar.label_3d_float)
+@onready var ability_array: Array[Ability] = [ability_jump, ability_float]
 
 # the angle of walls can be determined by the y component of their normal
 ## Degrees.
@@ -196,4 +196,5 @@ func _on_timer_timeout():
 	for ability in ability_array:
 		if ability.owned == true:
 			ability.owned = false
+			ability.icon.visible = false
 			break

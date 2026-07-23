@@ -15,16 +15,30 @@ texture = ExtResource("2_po8qk")
 [node name="PivotJump" type="Node3D" parent="Sprite3DStar" unique_id=1400063502]
 unique_name_in_owner = true
 
-[node name="Sprite3DJump" type="Sprite3D" parent="Sprite3DStar/PivotJump" unique_id=554570745]
+[node name="Label3DJump" type="Label3D" parent="Sprite3DStar/PivotJump" unique_id=1472598042]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 billboard = 1
+text = "Jump"
+
+[node name="Sprite3DJump" type="Sprite3D" parent="Sprite3DStar/PivotJump" unique_id=554570745]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+visible = false
+billboard = 1
 texture = ExtResource("2_po8qk")
 
-[node name="PivotHammer" type="Node3D" parent="Sprite3DStar" unique_id=1060328126]
+[node name="PivotFloat" type="Node3D" parent="Sprite3DStar" unique_id=1060328126]
 unique_name_in_owner = true
 
-[node name="Sprite3DHammer" type="Sprite3D" parent="Sprite3DStar/PivotHammer" unique_id=948916775]
+[node name="Label3DFloat" type="Label3D" parent="Sprite3DStar/PivotFloat" unique_id=970892566]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+billboard = 1
+text = "Float"
+
+[node name="Sprite3DFloat" type="Sprite3D" parent="Sprite3DStar/PivotFloat" unique_id=948916775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+visible = false
 billboard = 1
 texture = ExtResource("2_po8qk")
