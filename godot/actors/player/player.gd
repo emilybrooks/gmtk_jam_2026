@@ -9,6 +9,9 @@ const DECELERATION = 1.0 / 3.0
 # meters per second per second
 const ACCELERATION = 2.0 / 3.0
 
+## meters per second
+const SPRING_INITIAL_SPEED = 15.0
+
 var move_vector := Vector2.ZERO
 var state: State
 var previous_position: Vector3
@@ -253,3 +256,7 @@ func _on_game_start() -> void:
 
 func _on_victory() -> void:
 	change_state(%StateVictory)
+
+func _on_spring_spring_touched() -> void:
+	change_state(%StateAir)
+	velocity.y = SPRING_INITIAL_SPEED

@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
 [ext_resource type="PackedScene" uid="uid://cw7qctug37ik2" path="res://actors/clock_item/clock_item.tscn" id="8_4trkf"]
 [ext_resource type="Script" uid="uid://630rynojqgnf" path="res://scenes/gameplay_ui/label_game_timer.gd" id="10_pgp2d"]
+[ext_resource type="PackedScene" uid="uid://cms67c8xkpxbq" path="res://actors/spring/spring.tscn" id="13_65rq5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -194,10 +195,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
 
+[node name="Spring" parent="." unique_id=315667143 instance=ExtResource("13_65rq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8588161, -3.2309203, -1.5129676)
+
 [connection signal="game_init" from="." to="Player" method="_on_game_init"]
 [connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelScore" method="_on_game_init"]
-[connection signal="game_init" from="." to="Gate" method="_on_game_init"]
 [connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_init"]
+[connection signal="game_init" from="." to="Gate" method="_on_game_init"]
 [connection signal="game_start" from="." to="Player" method="_on_game_start"]
 [connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_game_start"]
 [connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_start"]
@@ -215,3 +219,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.11
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
 [connection signal="gate_enabled" from="Gate" to="." method="_on_gate_gate_enabled"]
 [connection signal="clock_item_collected" from="ClockItem" to="CanvasLayer/GameplayUI/LabelClock" method="_on_clock_item_clock_item_collected"]
+[connection signal="spring_touched" from="Spring" to="Player" method="_on_spring_spring_touched"]
