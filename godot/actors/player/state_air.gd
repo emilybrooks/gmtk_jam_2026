@@ -40,6 +40,8 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 
 	player.velocity -= Vector3.DOWN * GRAVITY * delta
 	
+	player.move_horizontally()
+	
 	# move
 	player.position = player.position + player.velocity * delta
 

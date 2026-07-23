@@ -42,21 +42,7 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 	
 	player.previous_position = player.position
 	
-	# get velocity
-	# controls should be in camera reference frame
-	# so convert the joystick direction to the player camera's coordinate system
-	
-	# instead of using the camera's basis, construct one from just the camera's azimuth to keep it upright
-	var camera_space := Basis.IDENTITY.rotated(Vector3.UP, %Camera.spherical_coords.azimuth)
-	var camera_ref_move: Vector3 = camera_space * Vector3(player.move_vector.x, 0, player.move_vector.y)
-	
-	var new_velocity: Vector3 = camera_ref_move * SPEED
-	
-	if player.move_vector == Vector2.ZERO:
-		# decelerate
-		player.velocity = player.velocity.move_toward(new_velocity, DECELERATION)
-	else:
-		player.velocity = new_velocity
+	player.move_horizontally()
 	
 	# move
 	player.position = player.position + player.velocity * delta

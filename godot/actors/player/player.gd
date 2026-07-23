@@ -1,5 +1,14 @@
 extends Node3D
 
+## meters per second
+const SPEED = 7.0
+
+## meters per second per second
+const DECELERATION = 1.0 / 3.0
+
+# meters per second per second
+const ACCELERATION = 2.0 / 3.0
+
 var move_vector := Vector2.ZERO
 var state: State
 var previous_position: Vector3
@@ -200,6 +209,27 @@ func current_ability_count() -> int:
 			count += 1
 	
 	return count
+
+func move_horizontally() -> void:
+	# controls should be in camera reference frame
+	# so convert the joystick direction to the player camera's coordinate system
+	# instead of using the camera's basis, construct one from just the camera's azimuth to keep it upright
+	var camera_space := Basis.IDENTITY.rotated(Vector3.UP, %Camera.spherical_coords.azimuth)
+	var camera_ref_move: Vector3 = camera_space * Vector3(move_vector.x, 0, move_vector.y)
+	
+	var target_velocity: Vector3 = camera_ref_move * SPEED
+	
+	var current_horiz_velocity: Vector2 = Vector2(velocity.x, velocity.z)
+	var target_horiz_velocity: Vector2 = Vector2(target_velocity.x, target_velocity.z)
+	
+	if move_vector == Vector2.ZERO:
+		current_horiz_velocity = current_horiz_velocity.move_toward(target_horiz_velocity, DECELERATION)
+	else:
+		current_horiz_velocity = current_horiz_velocity.move_toward(target_horiz_velocity, ACCELERATION)
+		
+	velocity.x = current_horiz_velocity.x
+	velocity.z = current_horiz_velocity.y
+
 		
 func _on_timer_timeout():
 	# disable the highest priority ability
