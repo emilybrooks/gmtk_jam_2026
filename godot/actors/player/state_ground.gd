@@ -1,7 +1,7 @@
 extends State
 
 ## meters per second
-const SPEED = 5.0
+const SPEED = 7.0
 
 ## meters per second per second
 const DECELERATION = 1.0 / 3.0
