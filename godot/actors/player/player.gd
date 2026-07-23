@@ -213,6 +213,7 @@ func _on_timer_timeout():
 func _on_game_init() -> void:
 	position = spawn_position
 	velocity = Vector3.ZERO
+	%Camera.spherical_coords.azimuth = 0.0
 	for ability in ability_array:
 		ability.enable()
 	
