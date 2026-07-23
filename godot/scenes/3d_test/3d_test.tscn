@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
 [ext_resource type="Script" uid="uid://b3mstoxn5550s" path="res://scenes/3d_test/state_game_init.gd" id="2_ef6qc"]
 [ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/goal_item/goal_item.tscn" id="3_12nre"]
+[ext_resource type="Script" uid="uid://bfwlseku7ojfb" path="res://scenes/3d_test/state_game_play.gd" id="3_kmnjm"]
+[ext_resource type="Script" uid="uid://c4lw8lyv8g04a" path="res://scenes/3d_test/state_game_victory.gd" id="4_nikux"]
 [ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="5_5lrt7"]
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/gate/gate.tscn" id="6_2xvf8"]
 [ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
@@ -27,6 +29,16 @@ script = ExtResource("1_bisgm")
 [node name="StateGameInit" type="Node" parent="." unique_id=711732574]
 unique_name_in_owner = true
 script = ExtResource("2_ef6qc")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateGamePlay" type="Node" parent="." unique_id=949834307]
+unique_name_in_owner = true
+script = ExtResource("3_kmnjm")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateGameVictory" type="Node" parent="." unique_id=934308373]
+unique_name_in_owner = true
+script = ExtResource("4_nikux")
 metadata/_custom_type_script = "uid://4g4s56dvoueh"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693988280]

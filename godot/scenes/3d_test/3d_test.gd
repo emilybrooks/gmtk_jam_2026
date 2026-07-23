@@ -32,9 +32,7 @@ func _physics_process(delta: float) -> void:
 		change_state(new_state)
 
 func _on_gate_gate_complete() -> void:
-	$%LabelGateDebug.text = "Gate Status: Complete"
-	$%LabelYouWon.visible = true
-
+	change_state($StateGameVictory)
 
 func _on_gate_gate_enabled() -> void:
 	$%LabelGateDebug.text = "Gate Status: Enabled"
