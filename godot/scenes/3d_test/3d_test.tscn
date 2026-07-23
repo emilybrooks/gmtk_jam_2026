@@ -76,9 +76,25 @@ offset_left = 15.0
 offset_top = 60.0
 offset_right = 55.0
 offset_bottom = 83.0
-text = "Goal state: Unknown"
+text = "Goal State: Disabled"
+
+[node name="LabelYouWon" type="Label" parent="CanvasLayer/Control" unique_id=1252146229]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 459.0
+offset_top = 614.0
+offset_right = 843.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 64
+text = "YOU WON!!!!"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Goal" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 
+[connection signal="score_item_collected" from="ScoreItem" to="Goal" method="_on_score_item_score_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="goal_complete" from="Goal" to="." method="_on_goal_goal_complete"]
+[connection signal="goal_ready" from="Goal" to="." method="_on_goal_goal_ready"]
