@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2d1nxxcnmryo"]
 
-[ext_resource type="Script" uid="uid://difo8eqf8vxv6" path="res://actors/goal/goal.gd" id="1_knvjy"]
-[ext_resource type="Material" uid="uid://d0x7xpp276ynx" path="res://actors/goal/goal_not_ready_material_3d.tres" id="2_h3e72"]
+[ext_resource type="Script" uid="uid://difo8eqf8vxv6" path="res://actors/gate/gate.gd" id="1_qtewt"]
+[ext_resource type="Material" uid="uid://d0x7xpp276ynx" path="res://actors/gate/goal_not_ready_material_3d.tres" id="2_h3e72"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gft63"]
 material = ExtResource("2_h3e72")
@@ -10,7 +10,7 @@ material = ExtResource("2_h3e72")
 height = 1.94104
 
 [node name="Goal" type="Node3D" unique_id=151702905]
-script = ExtResource("1_knvjy")
+script = ExtResource("1_qtewt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1793384010]
 mesh = SubResource("CylinderMesh_gft63")

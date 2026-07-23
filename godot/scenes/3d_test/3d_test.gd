@@ -7,10 +7,10 @@ func _ready() -> void:
 	
 
 
-func _on_goal_goal_ready() -> void:
-	$%LabelGoalDebug.text = "Goal Status: Ready"
+func _on_gate_gate_ready() -> void:
+	$%LabelGateDebug.text = "Gate Status: Ready"
 
 
-func _on_goal_goal_complete() -> void:
-	$%LabelGoalDebug.text = "Goal Status: Complete"
+func _on_gate_gate_complete() -> void:
+	$%LabelGateDebug.text = "Gate Status: Complete"
 	$%LabelYouWon.visible = true
