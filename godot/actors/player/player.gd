@@ -198,3 +198,6 @@ func _on_timer_timeout():
 			ability.owned = false
 			ability.icon.visible = false
 			break
+
+func _on_victory() -> void:
+	change_state(%StateVictory)

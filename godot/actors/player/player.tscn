@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cxo8sm5e6jg6v" path="res://actors/player/state_ground.gd" id="2_ilk7j"]
 [ext_resource type="Script" uid="uid://bq2acl64c8uk8" path="res://actors/player/camera.gd" id="3_ax26v"]
 [ext_resource type="Script" uid="uid://vo51mysofpfn" path="res://actors/player/state_air.gd" id="3_lsqbn"]
+[ext_resource type="Script" uid="uid://74o8iaq42ps0" path="res://actors/player/state_victory.gd" id="4_15y17"]
 [ext_resource type="PackedScene" uid="uid://dtv2gg5ubs5om" path="res://actors/player/player_star.tscn" id="5_6p1w3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosur"]
@@ -29,6 +30,11 @@ metadata/_custom_type_script = "uid://4g4s56dvoueh"
 [node name="StateAir" type="Node" parent="." unique_id=950978831]
 unique_name_in_owner = true
 script = ExtResource("3_lsqbn")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateVictory" type="Node" parent="." unique_id=275806555]
+unique_name_in_owner = true
+script = ExtResource("4_15y17")
 metadata/_custom_type_script = "uid://4g4s56dvoueh"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1308587356]

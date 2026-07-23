@@ -1,5 +1,7 @@
 extends Node3D
 
+signal victory
+
 var state: State
 
 func change_state(new_state: State) -> void:
@@ -32,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		change_state(new_state)
 
 func _on_gate_gate_complete() -> void:
+	victory.emit()
 	change_state($StateGameVictory)
 
 func _on_gate_gate_enabled() -> void:
