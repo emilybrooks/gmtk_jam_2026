@@ -14,9 +14,8 @@ func enter() -> void:
 	var clock_items = get_tree().get_nodes_in_group("ClockItem")
 	for clock_item in clock_items:
 		clock_item.enable()
-	
-	%ButtonRetry.hide()
-	%LabelYouWon.hide()
+		
+	%GameplayUI.show()
 	
 func update(delta: float) -> State:
 	return %StateGamePlay

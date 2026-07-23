@@ -5,13 +5,13 @@ func _ready() -> void:
 
 func enter() -> void:
 	print("Game Victory")
-	$%LabelGateDebug.text = "Gate Status: Complete"
-	$%LabelYouWon.visible = true
-	%ButtonRetry.show()
+
+	%GameplayUI.hide()
+	%ResultsScreen.show()
 	%ButtonRetry.grab_focus()
 
 func update(delta: float) -> State:
 	return null
 	
 func exit() -> void:
-	pass
+	%ResultsScreen.hide()

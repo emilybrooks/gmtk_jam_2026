@@ -21,16 +21,11 @@ func _on_clock_item_clock_item_collected() -> void:
 	%Timer.start(new_clock_duration)
 
 func _on_game_start() -> void:
-	show()
 	%Timer.start(initial_clock_duration)
 
 func _on_timer_timeout() -> void:
 	if %Player.current_ability_count() > 0:
 		%Timer.start(initial_clock_duration)
-	
-	else:
-		hide()
 
 func _on_victory() -> void:
 	%Timer.stop()
-	hide()
