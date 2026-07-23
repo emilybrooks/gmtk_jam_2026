@@ -121,5 +121,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.11
 [connection signal="goal_item_collected" from="GoalItem5" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
-[connection signal="gate_ready" from="Gate" to="." method="_on_gate_gate_ready"]
+[connection signal="gate_enabled" from="Gate" to="." method="_on_gate_gate_enabled"]
 [connection signal="clock_item_collected" from="ClockItem" to="CanvasLayer/Control/LabelClock" method="_on_clock_item_clock_item_collected"]

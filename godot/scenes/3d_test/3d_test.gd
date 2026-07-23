@@ -6,11 +6,10 @@ func _ready() -> void:
 		goal_item.goal_item_collected.connect(%LabelScore._on_goal_item_collected)
 	
 
-
-func _on_gate_gate_ready() -> void:
-	$%LabelGateDebug.text = "Gate Status: Ready"
-
-
 func _on_gate_gate_complete() -> void:
 	$%LabelGateDebug.text = "Gate Status: Complete"
 	$%LabelYouWon.visible = true
+
+
+func _on_gate_gate_enabled() -> void:
+	$%LabelGateDebug.text = "Gate Status: Enabled"
