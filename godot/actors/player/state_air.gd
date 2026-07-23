@@ -20,6 +20,9 @@ const GRAVITY: float = -9.8
 # meters per second
 const DOUBLE_JUMP_INITIAL_SPEED: float = 6.0
 
+## meters.
+const CEILING_CHECK_HEIGHT: float = 1.6
+
 # Once the player has double-jumped once in the air, they shouldn't be able to double-jump again
 var has_double_jumped = false
 
@@ -60,6 +63,19 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 		else:
 			return %StateGround
 	
+	# ceiling collision
+	var ceiling_start: Vector3 = player.position
+	var ceiling_end: Vector3 = player.position + Vector3.UP * CEILING_CHECK_HEIGHT
+	var ceiling_raycast := Raycast3DHelper.new(ceiling_start, ceiling_end, space_state)
+	if ceiling_raycast.fraction != 1.0:
+		player.position = player.previous_position
+		if player.velocity.y > 0.0:
+			player.velocity.y = 0.0
+		
+		if player.velocity.y < 0.0:
+			player.velocity.x = 0.0
+			player.velocity.z = 0.0
+		
 	return null
 	
 func exit() -> void:

@@ -1,0 +1,17 @@
+[remap]
+
+importer="vmfimport"
+type="PackedScene"
+uid="uid://ycocga26qjg3"
+path="res://.godot/imported/level.vmf-6081e6dbbb44b49ae1536945b57152cb.tscn"
+
+[deps]
+
+source_file="res://maps/level.vmf"
+dest_files=["res://.godot/imported/level.vmf-6081e6dbbb44b49ae1536945b57152cb.tscn"]
+
+[params]
+
+material_directory="res://assets/materials"
+hammer_units_per_meter=40
+collision_type=1
