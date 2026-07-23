@@ -30,3 +30,7 @@ func _on_timer_timeout() -> void:
 	
 	else:
 		hide()
+
+func _on_victory() -> void:
+	%Timer.stop()
+	hide()

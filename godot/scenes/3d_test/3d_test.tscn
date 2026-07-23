@@ -160,6 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.11
 [connection signal="game_start" from="." to="Player" method="_on_game_start"]
 [connection signal="game_start" from="." to="CanvasLayer/Control/LabelClock" method="_on_game_start"]
 [connection signal="victory" from="." to="Player" method="_on_victory"]
+[connection signal="victory" from="." to="CanvasLayer/Control/LabelClock" method="_on_victory"]
 [connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem3" to="Gate" method="_on_goal_item_goal_item_collected"]
