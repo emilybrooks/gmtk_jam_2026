@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
 [ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/score_item/score_item.tscn" id="3_12nre"]
 [ext_resource type="PackedScene" uid="uid://cy21wx0geecav" path="res://scenes/gameplay_ui/gameplay_ui.tscn" id="4_nmxf4"]
+[ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/goal/goal.tscn" id="6_2xvf8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -39,3 +40,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.7817
 
 [node name="GameplayUI" parent="CanvasLayer" unique_id=666351907 instance=ExtResource("4_nmxf4")]
 unique_name_in_owner = true
+
+[node name="Goal" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
+
+[connection signal="goal_entered" from="Goal" to="CanvasLayer/GameplayUI" method="_on_goal_goal_entered"]

@@ -41,3 +41,11 @@ script = ExtResource("3_avg3y")
 [node name="Timer" type="Timer" parent="LabelClock" unique_id=2108542358]
 unique_name_in_owner = true
 wait_time = 75.0
+
+[node name="LabelGoalDebug" type="Label" parent="." unique_id=1280369003]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 71.0
+offset_right = 174.0
+offset_bottom = 94.0
+text = "Goal State: Unknown"

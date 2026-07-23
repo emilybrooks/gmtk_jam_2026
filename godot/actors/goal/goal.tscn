@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c2d1nxxcnmryo"]
+
+[ext_resource type="Script" uid="uid://difo8eqf8vxv6" path="res://actors/goal/goal.gd" id="1_knvjy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpjwr"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gft63"]
+material = SubResource("StandardMaterial3D_xpjwr")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gft63"]
+height = 1.94104
+
+[node name="Goal" type="Node3D" unique_id=151702905]
+script = ExtResource("1_knvjy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1793384010]
+mesh = SubResource("CylinderMesh_gft63")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1686094681]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=266556090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, 0)
+shape = SubResource("CylinderShape3D_gft63")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
