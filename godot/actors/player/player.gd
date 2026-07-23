@@ -11,6 +11,7 @@ var wall_yaw: float
 ## normal of the wall the player is colliding with
 var wall_normal: Vector3
 
+@onready var spawn_position = position
 @onready var ability_jump := Ability.new("Jump", true, %PlayerStar.label_3d_jump)
 @onready var ability_float := Ability.new("Float", true, %PlayerStar.label_3d_float)
 @onready var ability_array: Array[Ability] = [ability_jump, ability_float]
@@ -198,6 +199,14 @@ func _on_timer_timeout():
 			ability.owned = false
 			ability.icon.visible = false
 			break
+
+func _on_game_init() -> void:
+	position = spawn_position
+	velocity = Vector3.ZERO
+	
+func _on_game_start() -> void:
+
+	change_state(%StateGround)
 
 func _on_victory() -> void:
 	change_state(%StateVictory)

@@ -1,5 +1,7 @@
 extends Node3D
 
+signal game_init
+signal game_start
 signal victory
 
 var state: State
@@ -39,3 +41,6 @@ func _on_gate_gate_complete() -> void:
 
 func _on_gate_gate_enabled() -> void:
 	$%LabelGateDebug.text = "Gate Status: Enabled"
+
+func _on_button_retry_pressed() -> void:
+	change_state($StateGameInit)

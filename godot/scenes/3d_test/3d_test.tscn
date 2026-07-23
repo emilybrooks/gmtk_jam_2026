@@ -76,9 +76,11 @@ number = 5
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=867845922]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LabelScore" type="Label" parent="CanvasLayer/Control" unique_id=1341350845]
 unique_name_in_owner = true
@@ -126,12 +128,32 @@ text = "YOU WON!!!!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="ButtonRetry" type="Button" parent="CanvasLayer/Control" unique_id=1677746965]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -15.5
+offset_right = 25.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Retry"
+
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
 
+[connection signal="game_init" from="." to="Player" method="_on_game_init"]
+[connection signal="game_start" from="." to="Player" method="_on_game_start"]
 [connection signal="victory" from="." to="Player" method="_on_victory"]
 [connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
@@ -139,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.11
 [connection signal="goal_item_collected" from="GoalItem4" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem5" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Control/ButtonRetry" to="." method="_on_button_retry_pressed"]
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
 [connection signal="gate_enabled" from="Gate" to="." method="_on_gate_gate_enabled"]
 [connection signal="clock_item_collected" from="ClockItem" to="CanvasLayer/Control/LabelClock" method="_on_clock_item_clock_item_collected"]
