@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/gate/gate.tscn" id="6_2xvf8"]
 [ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
 [ext_resource type="PackedScene" uid="uid://cw7qctug37ik2" path="res://actors/clock_item/clock_item.tscn" id="8_4trkf"]
+[ext_resource type="Script" uid="uid://630rynojqgnf" path="res://scenes/gameplay_ui/label_game_timer.gd" id="10_pgp2d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -108,8 +109,24 @@ unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
 
+[node name="LabelGameTimer" type="Label" parent="CanvasLayer/GameplayUI" unique_id=960314204]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 7.0
+offset_right = 64.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "00:00.00"
+script = ExtResource("10_pgp2d")
+
 [node name="ResultsScreen" type="Control" parent="CanvasLayer" unique_id=1183602433]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,6 +154,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="LabelClearTime" type="Label" parent="CanvasLayer/ResultsScreen" unique_id=530381118]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -179,10 +197,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.11
 [connection signal="game_init" from="." to="Player" method="_on_game_init"]
 [connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelScore" method="_on_game_init"]
 [connection signal="game_init" from="." to="Gate" method="_on_game_init"]
+[connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_init"]
 [connection signal="game_start" from="." to="Player" method="_on_game_start"]
 [connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_game_start"]
+[connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_start"]
 [connection signal="victory" from="." to="Player" method="_on_victory"]
 [connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_victory"]
+[connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_victory"]
 [connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem3" to="Gate" method="_on_goal_item_goal_item_collected"]

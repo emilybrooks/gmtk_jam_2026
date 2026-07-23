@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func enter() -> void:
 	print("Game Victory")
-
+	%LabelClearTime.text = %LabelGameTimer.time_to_string(%LabelGameTimer.clear_time)
 	%GameplayUI.hide()
 	%ResultsScreen.show()
 	%ButtonRetry.grab_focus()
