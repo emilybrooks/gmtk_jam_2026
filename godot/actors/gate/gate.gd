@@ -17,12 +17,15 @@ signal gate_complete
 signal gate_entered
 
 func _ready() -> void:
-	current_state = State.Disabled
-	$MeshInstance3D.mesh.set_material(disabled_material)
+	pass
 
 func _process(delta: float) -> void:
 	pass
 
+func set_to_disabled() -> void:
+	current_state = State.Disabled
+	$MeshInstance3D.mesh.set_material(disabled_material)
+	
 func set_to_enabled() -> void:
 	$MeshInstance3D.mesh.set_material(enabled_material)
 	current_state = State.Enabled
@@ -45,3 +48,7 @@ func _on_goal_item_goal_item_collected(number: int) -> void:
 	collected_goals.append(number)
 	if (is_goal_enabled()):
 		set_to_enabled()
+
+func _on_game_init() -> void:
+	set_to_disabled()
+	collected_goals = []
