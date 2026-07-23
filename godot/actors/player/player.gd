@@ -12,8 +12,8 @@ var wall_yaw: float
 var wall_normal: Vector3
 
 @onready var spawn_position = position
-@onready var ability_jump := Ability.new("Jump", true, %PlayerStar.label_3d_jump)
-@onready var ability_float := Ability.new("Float", true, %PlayerStar.label_3d_float)
+@onready var ability_jump := Ability.new("Jump", %PlayerStar.label_3d_jump)
+@onready var ability_float := Ability.new("Float", %PlayerStar.label_3d_float)
 @onready var ability_array: Array[Ability] = [ability_jump, ability_float]
 
 # the angle of walls can be determined by the y component of their normal
@@ -196,16 +196,16 @@ func _on_timer_timeout():
 	# disable the highest priority ability
 	for ability in ability_array:
 		if ability.owned == true:
-			ability.owned = false
-			ability.icon.visible = false
+			ability.disable()
 			break
 
 func _on_game_init() -> void:
 	position = spawn_position
 	velocity = Vector3.ZERO
+	for ability in ability_array:
+		ability.enable()
 	
 func _on_game_start() -> void:
-
 	change_state(%StateGround)
 
 func _on_victory() -> void:
