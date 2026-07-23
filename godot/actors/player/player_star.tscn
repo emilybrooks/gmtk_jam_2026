@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dtv2gg5ubs5om"]
+
+[ext_resource type="Script" uid="uid://ddaafepvn3cu2" path="res://actors/player/player_star.gd" id="1_o0dtr"]
+[ext_resource type="Texture2D" uid="uid://bm3h6yf8ut47i" path="res://assets/materials/Stars_01_004.png" id="2_po8qk"]
+
+[node name="PlayerStar" type="Node3D" unique_id=2085194311]
+script = ExtResource("1_o0dtr")
+
+[node name="Sprite3DStar" type="Sprite3D" parent="." unique_id=1706595452]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+texture = ExtResource("2_po8qk")
+
+[node name="PivotJump" type="Node3D" parent="Sprite3DStar" unique_id=1400063502]
+unique_name_in_owner = true
+
+[node name="Sprite3DJump" type="Sprite3D" parent="Sprite3DStar/PivotJump" unique_id=554570745]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+billboard = 1
+texture = ExtResource("2_po8qk")
+
+[node name="PivotHammer" type="Node3D" parent="Sprite3DStar" unique_id=1060328126]
+unique_name_in_owner = true
+
+[node name="Sprite3DHammer" type="Sprite3D" parent="Sprite3DStar/PivotHammer" unique_id=948916775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+billboard = 1
+texture = ExtResource("2_po8qk")
