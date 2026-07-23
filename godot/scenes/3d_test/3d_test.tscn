@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwxh71bmq8l41" path="res://maps/3d_test.vmf" id="1_26ull"]
 [ext_resource type="Script" uid="uid://ktew6u24xwse" path="res://scenes/3d_test/3d_test.gd" id="1_bisgm"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1xpqf"]
-[ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/score_item/score_item.tscn" id="3_12nre"]
+[ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/goal_item/goal_item.tscn" id="3_12nre"]
 [ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="5_5lrt7"]
 [ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/gate/gate.tscn" id="6_2xvf8"]
 [ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="6_4trkf"]
@@ -35,7 +35,7 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -3.1999998, -16.919056)
 
-[node name="ScoreItem" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
+[node name="GoalItem" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.781777)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927264342]
@@ -98,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
 
-[connection signal="score_item_collected" from="ScoreItem" to="Gate" method="_on_score_item_score_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="timeout" from="CanvasLayer/Control/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
 [connection signal="gate_ready" from="Gate" to="." method="_on_gate_gate_ready"]

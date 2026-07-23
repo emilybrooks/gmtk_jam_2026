@@ -35,5 +35,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if current_state == State.Ready:
 		set_to_complete()
 
-func _on_score_item_score_item_collected() -> void:
+func _on_goal_item_goal_item_collected() -> void:
 	set_to_ready()

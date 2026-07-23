@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://b38f3a7xvaeoh"]
 
-[ext_resource type="Script" uid="uid://xeq2plxi2i4f" path="res://actors/score_item/score_item.gd" id="1_x2g4i"]
+[sub_resource type="GDScript" id="GDScript_4curi"]
+script/source = "extends Node3D
+
+signal goal_item_collected
+	
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	goal_item_collected.emit()
+	queue_free()
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_llj44"]
 
@@ -12,8 +20,8 @@ material = SubResource("StandardMaterial3D_wosur")
 radius = 0.25
 height = 0.5
 
-[node name="ScoreItem" type="Node3D" unique_id=736150383 groups=["ScoreItem"]]
-script = ExtResource("1_x2g4i")
+[node name="GoalItem" type="Node3D" unique_id=736150383 groups=["GoalItem"]]
+script = SubResource("GDScript_4curi")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=136926416]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
