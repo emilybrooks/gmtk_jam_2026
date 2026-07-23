@@ -191,6 +191,14 @@ func prevent_tunneling(wall_check_height: float, space_state) -> void:
 	if wall_raycast.fraction != 1.0:
 		position.x = wall_raycast.endpos.x
 		position.z = wall_raycast.endpos.z
+
+func current_ability_count() -> int:
+	var count = 0
+	for ability in ability_array:
+		if ability.owned:
+			count += 1
+	
+	return count
 		
 func _on_timer_timeout():
 	# disable the highest priority ability

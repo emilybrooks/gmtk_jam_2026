@@ -1,5 +1,8 @@
 extends Label
 
+## Seconds.
+var initial_clock_duration: float = 3.0
+
 func _ready() -> void:
 	pass
 	
@@ -11,9 +14,19 @@ func _process(delta: float) -> void:
 	text = "%d seconds until you lose your ability..." % time_left
 
 func _on_clock_item_clock_item_collected() -> void:
-	var currenttime = %Timer.get_time_left()
-	%Timer.set_wait_time(currenttime + 10)
-	%Timer.start()
+	if %Player.current_ability_count() <= 0:
+		return
+	
+	var new_clock_duration: float = %Timer.get_time_left() + 10.0
+	%Timer.start(new_clock_duration)
 
 func _on_game_start() -> void:
-	%Timer.start()
+	show()
+	%Timer.start(initial_clock_duration)
+
+func _on_timer_timeout() -> void:
+	if %Player.current_ability_count() > 0:
+		%Timer.start(initial_clock_duration)
+	
+	else:
+		hide()
