@@ -45,6 +45,10 @@ func change_state(new_state: State) -> void:
 	state.enter()
 
 func _ready() -> void:
+	var springs = get_tree().get_nodes_in_group("Spring")
+	for spring in springs:
+		spring.spring_touched.connect(_on_spring_spring_touched)
+		
 	change_state(%StateGround)
 
 func _input(event: InputEvent) -> void:

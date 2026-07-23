@@ -33,6 +33,7 @@ func _ready() -> void:
 	pass
 
 func enter() -> void:
+	player.velocity.y = 0.0
 	%PlayerStar.flop = false
 
 func update(delta: float) -> State:
