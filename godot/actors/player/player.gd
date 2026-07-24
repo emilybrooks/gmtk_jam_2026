@@ -286,9 +286,10 @@ func _on_game_init() -> void:
 	%Camera.spherical_coords.azimuth = 0.0
 	for ability in ability_array:
 		ability.enable()
+	change_state(%StateGround)
 	
 func _on_game_start() -> void:
-	change_state(%StateGround)
+	pass
 
 func _on_victory() -> void:
 	change_state(%StateVictory)

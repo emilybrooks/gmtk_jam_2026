@@ -18,6 +18,7 @@ func _ready() -> void:
 		goal_item.goal_item_collected.connect(%LabelScore._on_goal_item_collected)
 	
 	%ResultsScreen.hide()
+	%Gate.gate_exited.connect(_on_gate_exited)
 	
 	change_state(%StateGameInit)
 
@@ -46,3 +47,7 @@ func _on_gate_gate_enabled() -> void:
 
 func _on_button_retry_pressed() -> void:
 	change_state($StateGameInit)
+
+func _on_gate_exited() -> void:
+	if state == %StateGameInit:
+		change_state($StateGamePlay)

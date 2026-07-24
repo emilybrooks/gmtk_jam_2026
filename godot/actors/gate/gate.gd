@@ -15,6 +15,7 @@ var collected_goals = []
 signal gate_enabled
 signal gate_complete
 signal gate_entered
+signal gate_exited
 
 func _ready() -> void:
 	pass
@@ -52,3 +53,6 @@ func _on_goal_item_goal_item_collected(number: int) -> void:
 func _on_game_init() -> void:
 	set_to_disabled()
 	collected_goals = []
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	gate_exited.emit()

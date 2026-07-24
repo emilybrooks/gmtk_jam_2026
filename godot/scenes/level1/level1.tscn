@@ -196,7 +196,7 @@ text = "Retry"
 
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("11_w8s12")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.406927, 23.34252, 9.611795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.406927, 22.4, 9.611795)
 
 [node name="Spring2" parent="." unique_id=315667143 instance=ExtResource("13_vxg0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.102188, 0, 9.241097)

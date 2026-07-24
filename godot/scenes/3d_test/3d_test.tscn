@@ -55,7 +55,7 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("2_1xpqf")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.304842, -3.1999998, -3.1792865)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4371128, -3.1999998, -0.42403603)
 
 [node name="GoalItem1" parent="." unique_id=736150383 instance=ExtResource("3_12nre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168194, -2.6999998, -3.781777)
@@ -196,7 +196,7 @@ text = "Retry"
 
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1971204, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1999998, 0)
 
 [node name="ClockItem" parent="." unique_id=745184264 instance=ExtResource("8_4trkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.632877, 0.45423913, -12.111079)
