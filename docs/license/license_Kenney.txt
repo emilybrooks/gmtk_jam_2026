@@ -13,3 +13,13 @@ Assets used:
     - lowRandom.ogg
     - phaseJump1.ogg
     - phaseJump2.ogg
+  - Synth Voice 1
+    - count_1.ogg
+    - count_2.ogg
+    - count_3.ogg
+    - count_4.ogg
+    - count_5.ogg
+    - count_6.ogg
+    - count_7.ogg
+    - count_8.ogg
+    - count_9.ogg
