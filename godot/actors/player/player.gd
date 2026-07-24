@@ -286,6 +286,7 @@ func _on_game_init() -> void:
 	%Camera.spherical_coords.azimuth = 0.0
 	for ability in ability_array:
 		ability.enable()
+	chopping_block_ability = ability_array[0].name
 	change_state(%StateGround)
 	
 func _on_game_start() -> void:

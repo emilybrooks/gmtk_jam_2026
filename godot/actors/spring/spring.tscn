@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cms67c8xkpxbq"]
 
-[ext_resource type="PackedScene" uid="uid://2nu8vlsb5pht" path="res://assets/models/Platformer Kit/spring.glb" id="1_igyt8"]
 [ext_resource type="Script" uid="uid://bir8g3enkn7l6" path="res://actors/spring/spring.gd" id="1_voxhw"]
+[ext_resource type="PackedScene" uid="uid://dw05vsakoibre" path="res://actors/spring/spring_model.tscn" id="2_md6q4"]
 [ext_resource type="AudioStream" uid="uid://boeikgooyurkq" path="res://assets/audio/universfield-spring-boing-229170.ogg" id="3_md6q4"]
+[ext_resource type="AudioStream" uid="uid://baaghmd80oc11" path="res://assets/audio/lowRandom.ogg" id="4_cmjyp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gft63"]
 height = 0.41845703
@@ -14,11 +15,11 @@ script = ExtResource("1_voxhw")
 [node name="Area3D" type="Area3D" parent="." unique_id=752054751]
 collision_mask = 3
 
-[node name="spring3" parent="Area3D" unique_id=559995765 instance=ExtResource("1_igyt8")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=170907584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24014932, 0)
 shape = SubResource("CylinderShape3D_gft63")
+
+[node name="SpringModel" parent="Area3D" unique_id=559995765 instance=ExtResource("2_md6q4")]
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=1240091475]
 wait_time = 0.5
@@ -30,6 +31,9 @@ one_shot = true
 
 [node name="BoingSound" type="AudioStreamPlayer3D" parent="." unique_id=1345378987]
 stream = ExtResource("3_md6q4")
+
+[node name="DisabledSound" type="AudioStreamPlayer3D" parent="." unique_id=570298824]
+stream = ExtResource("4_cmjyp")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

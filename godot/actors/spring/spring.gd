@@ -1,8 +1,10 @@
 extends Node3D
 
+var disabled_material = preload("res://actors/spring/spring_disabled_material_3d.tres")
+
 signal spring_touched
 
-@onready var bounce_cooldown = false
+@onready var touch_cooldown = false
 @onready var squash_and_stretch = false
 
 func _ready() -> void:
@@ -22,20 +24,32 @@ func _process(delta: float) -> void:
 		$Area3D.scale.x = 1.0
 		$Area3D.scale.z = 1.0
 		$Area3D.scale.y = 1.0
+	
+	if not %Player.ability_spring.owned:
+		$Area3D/SpringModel/spring.set_surface_override_material(0, disabled_material)
+		$Area3D/SpringModel/spring/platform.set_surface_override_material(0, disabled_material)
+		$Area3D/SpringModel/spring/spring2.set_surface_override_material(0, disabled_material)
+	else:
+		$Area3D/SpringModel/spring.set_surface_override_material(0, null)
+		$Area3D/SpringModel/spring/platform.set_surface_override_material(0, null)
+		$Area3D/SpringModel/spring/spring2.set_surface_override_material(0, null)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if (!bounce_cooldown and %Player.ability_spring.owned):
-		spring_touched.emit()
-		$CooldownTimer.start()
-		$SquashAndStretchTimer.start()
-		$BoingSound.play()
-		bounce_cooldown = true
-		squash_and_stretch = true
+	if (!touch_cooldown):
+		if (%Player.ability_spring.owned):
+			spring_touched.emit()
+			$SquashAndStretchTimer.start()
+			$BoingSound.play()
+			squash_and_stretch = true
+		else:
+			$DisabledSound.play()
+	$CooldownTimer.start()
+	touch_cooldown = true
 
 func _on_cooldown_timer_timeout() -> void:
 	print("[Spring] cooldown done")
-	bounce_cooldown = false
+	touch_cooldown = false
 
 func _on_squash_and_stretch_timer_timeout() -> void:
 	print("[Spring] squash and stretch done")
-	squash_and_stretch = false
+	touch_cooldown = false

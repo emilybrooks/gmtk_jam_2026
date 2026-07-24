@@ -9,6 +9,8 @@ func enter() -> void:
 	%LabelClock.show()
 
 func update(delta: float) -> State:
+	if Input.is_action_pressed("retry"):
+		return %StateGameInit
 	return null
 	
 func exit() -> void:
