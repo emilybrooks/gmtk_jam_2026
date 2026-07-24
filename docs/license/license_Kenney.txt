@@ -1,0 +1,14 @@
+By Kenney
+https://www.kenney.nl/
+
+From Kenney Game Assets All-in-1
+https://kenney.itch.io/kenney-game-assets
+
+Assets used:
+- 3D assets
+  - Platformer Kit
+    - spring.glb
+- Audio
+  - Digital Audio
+    - phaseJump1.ogg
+    - phaseJump2.ogg

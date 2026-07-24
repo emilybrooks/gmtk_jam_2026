@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://74o8iaq42ps0" path="res://actors/player/state_victory.gd" id="4_15y17"]
 [ext_resource type="PackedScene" uid="uid://dtv2gg5ubs5om" path="res://actors/player/player_star.tscn" id="5_6p1w3"]
 [ext_resource type="Script" uid="uid://c10e5p73kbgg2" path="res://actors/player/state_flop.gd" id="5_bop6h"]
+[ext_resource type="AudioStream" uid="uid://7q1hii673ryg" path="res://assets/audio/phaseJump1.ogg" id="8_388e2"]
+[ext_resource type="AudioStream" uid="uid://berdhhrgd4kw1" path="res://assets/audio/phaseJump2.ogg" id="9_lsln6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosur"]
 albedo_color = Color(1, 0.22352941, 1, 1)
@@ -61,3 +63,11 @@ shape = SubResource("CapsuleShape3D_lsqbn")
 
 [node name="PlayerStar" parent="." unique_id=2085194311 instance=ExtResource("5_6p1w3")]
 unique_name_in_owner = true
+
+[node name="JumpSound" type="AudioStreamPlayer3D" parent="." unique_id=1050209918]
+unique_name_in_owner = true
+stream = ExtResource("8_388e2")
+
+[node name="DoubleJumpSound" type="AudioStreamPlayer3D" parent="." unique_id=924339748]
+unique_name_in_owner = true
+stream = ExtResource("9_lsln6")

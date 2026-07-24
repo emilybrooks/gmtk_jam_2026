@@ -43,6 +43,7 @@ func update(delta: float) -> State:
 func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> State:
 	if Input.is_action_pressed("jump") and player.ability_jump.owned:
 		player.velocity.y = JUMP_INITIAL_SPEED
+		%JumpSound.play()
 		return %StateAir
 	
 	player.previous_position = player.position
