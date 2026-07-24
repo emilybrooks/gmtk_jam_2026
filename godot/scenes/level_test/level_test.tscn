@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ycocga26qjg3" path="res://maps/level.vmf" id="1_ear38"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="2_1na2r"]
 [ext_resource type="PackedScene" uid="uid://cms67c8xkpxbq" path="res://actors/spring/spring.tscn" id="3_1na2r"]
+[ext_resource type="PackedScene" uid="uid://b6sbuh8glvh2n" path="res://actors/updraft/updraft.tscn" id="4_ikhjm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ear38"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,3 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.102188, 0, 9.241097)
 
 [node name="Spring3" parent="." unique_id=1809179519 instance=ExtResource("3_1na2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.483469, 9.569078, 9.744684)
+
+[node name="Updraft" parent="." unique_id=443403970 instance=ExtResource("4_ikhjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.47841, 10.600008, 5.9691353)
+updraft_height = 14

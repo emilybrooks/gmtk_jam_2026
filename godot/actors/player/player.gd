@@ -13,7 +13,7 @@ const ACCELERATION = 2.0 / 3.0
 const SPRING_INITIAL_SPEED = 16.0
 
 # meters per second
-const UPDRAFT_TARGET_SPEED = 1.75
+const UPDRAFT_TARGET_SPEED = 1.0
 
 # meters per second per second
 const UPDRAFT_FALLING_ACCEL = 1.0

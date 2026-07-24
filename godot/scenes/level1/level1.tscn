@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://bphul35uwwn1w"]
+
+[ext_resource type="Script" uid="uid://ktew6u24xwse" path="res://scenes/3d_test/3d_test.gd" id="1_sq1bk"]
+[ext_resource type="Script" uid="uid://b3mstoxn5550s" path="res://scenes/3d_test/state_game_init.gd" id="2_iuyfu"]
+[ext_resource type="Script" uid="uid://bfwlseku7ojfb" path="res://scenes/3d_test/state_game_play.gd" id="3_y2y3g"]
+[ext_resource type="Script" uid="uid://c4lw8lyv8g04a" path="res://scenes/3d_test/state_game_victory.gd" id="4_2qfxn"]
+[ext_resource type="PackedScene" uid="uid://ycocga26qjg3" path="res://maps/level.vmf" id="5_wmcwa"]
+[ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="6_ppfxp"]
+[ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/goal_item/goal_item.tscn" id="7_806y8"]
+[ext_resource type="Script" uid="uid://df4odqxyb8vww" path="res://scenes/gameplay_ui/score.gd" id="8_60sov"]
+[ext_resource type="Script" uid="uid://cdds5bc2g7ine" path="res://scenes/gameplay_ui/clock.gd" id="9_wjyw5"]
+[ext_resource type="Script" uid="uid://630rynojqgnf" path="res://scenes/gameplay_ui/label_game_timer.gd" id="10_34v86"]
+[ext_resource type="PackedScene" uid="uid://c2d1nxxcnmryo" path="res://actors/gate/gate.tscn" id="11_w8s12"]
+[ext_resource type="PackedScene" uid="uid://cms67c8xkpxbq" path="res://actors/spring/spring.tscn" id="13_vxg0n"]
+[ext_resource type="PackedScene" uid="uid://b6sbuh8glvh2n" path="res://actors/updraft/updraft.tscn" id="14_m6a7d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1xpqf"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_mxqax"]
+sky_material = SubResource("ProceduralSkyMaterial_1xpqf")
+
+[sub_resource type="Environment" id="Environment_nmxf4"]
+background_mode = 2
+sky = SubResource("Sky_mxqax")
+
+[node name="Level1" type="Node3D" unique_id=2087464167]
+script = ExtResource("1_sq1bk")
+
+[node name="StateGameInit" type="Node" parent="." unique_id=711732574]
+unique_name_in_owner = true
+script = ExtResource("2_iuyfu")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateGamePlay" type="Node" parent="." unique_id=949834307]
+unique_name_in_owner = true
+script = ExtResource("3_y2y3g")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateGameVictory" type="Node" parent="." unique_id=934308373]
+unique_name_in_owner = true
+script = ExtResource("4_2qfxn")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693988280]
+environment = SubResource("Environment_nmxf4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=684188580]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="level_vmf" parent="." unique_id=1263361209 instance=ExtResource("5_wmcwa")]
+transform = Transform3D(1, -1.4901161e-08, -1.4901161e-08, -1.4901161e-08, 1, -2.9802322e-08, -1.4901161e-08, 0, 1, 0, 0, 0)
+
+[node name="Player" parent="." unique_id=749876566 instance=ExtResource("6_ppfxp")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.406927, 22.4, 9.611795)
+
+[node name="GoalItem1" parent="." unique_id=736150383 instance=ExtResource("7_806y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.165302, -2.699999, 8.037341)
+
+[node name="GoalItem2" parent="." unique_id=64204515 instance=ExtResource("7_806y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4385357, 0.8378899, 7.3027716)
+number = 2
+
+[node name="GoalItem3" parent="." unique_id=1636497081 instance=ExtResource("7_806y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.089894, 18.100004, -13.672547)
+number = 3
+
+[node name="GoalItem4" parent="." unique_id=251809194 instance=ExtResource("7_806y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.125341, 6.1231356, 9.651669)
+number = 4
+
+[node name="GoalItem5" parent="." unique_id=819777443 instance=ExtResource("7_806y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.791305, -2.6999986, 29.793139)
+number = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927264342]
+
+[node name="GameplayUI" type="Control" parent="CanvasLayer" unique_id=867845922]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelScore" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1341350845]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 62.0
+offset_bottom = 37.0
+text = "[]"
+script = ExtResource("8_60sov")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelClock" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1788328641]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 35.0
+offset_right = 62.0
+offset_bottom = 58.0
+text = "0 seconds until"
+script = ExtResource("9_wjyw5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/GameplayUI/LabelClock" unique_id=504285425]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="LabelGameTimer" type="Label" parent="CanvasLayer/GameplayUI" unique_id=960314204]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 7.0
+offset_right = 64.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "00:00.00"
+script = ExtResource("10_34v86")
+metadata/_edit_use_anchors_ = true
+
+[node name="ResultsScreen" type="Control" parent="CanvasLayer" unique_id=1183602433]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelYouWon" type="Label" parent="CanvasLayer/ResultsScreen" unique_id=1252146229]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -143.0
+offset_right = 192.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "YOU WON!!!!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LabelClearTime" type="Label" parent="CanvasLayer/ResultsScreen" unique_id=530381118]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "0:00.00"
+
+[node name="ButtonRetry" type="Button" parent="CanvasLayer/ResultsScreen" unique_id=1677746965]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 80.0
+offset_right = 66.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Retry"
+
+[node name="Gate" parent="." unique_id=151702905 instance=ExtResource("11_w8s12")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.406927, 23.34252, 9.611795)
+
+[node name="Spring2" parent="." unique_id=315667143 instance=ExtResource("13_vxg0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.102188, 0, 9.241097)
+
+[node name="Spring3" parent="." unique_id=2137626875 instance=ExtResource("13_vxg0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.483469, 9.569078, 9.744684)
+
+[node name="Updraft" parent="." unique_id=443403970 instance=ExtResource("14_m6a7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.47841, 10.600008, 5.9691353)
+updraft_height = 14
+
+[connection signal="game_init" from="." to="Player" method="_on_game_init"]
+[connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelScore" method="_on_game_init"]
+[connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_init"]
+[connection signal="game_init" from="." to="Gate" method="_on_game_init"]
+[connection signal="game_start" from="." to="Player" method="_on_game_start"]
+[connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_game_start"]
+[connection signal="game_start" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_start"]
+[connection signal="victory" from="." to="Player" method="_on_victory"]
+[connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_victory"]
+[connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_victory"]
+[connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem3" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem4" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="goal_item_collected" from="GoalItem5" to="Gate" method="_on_goal_item_goal_item_collected"]
+[connection signal="timeout" from="CanvasLayer/GameplayUI/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/GameplayUI/LabelClock/Timer" to="CanvasLayer/GameplayUI/LabelClock" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/ResultsScreen/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
+[connection signal="gate_enabled" from="Gate" to="." method="_on_gate_gate_enabled"]
