@@ -16,6 +16,7 @@ func enter() -> void:
 		clock_item.enable()
 		
 	%LabelInstructions1.show()
+	%LabelInstructions2.hide()
 	%LabelClock.hide()
 	%GameplayUI.show()
 	

@@ -30,6 +30,7 @@ func set_to_disabled() -> void:
 func set_to_enabled() -> void:
 	$MeshInstance3D.mesh.set_material(enabled_material)
 	current_state = State.Enabled
+	%LabelInstructions2.show()
 	gate_enabled.emit()
 
 func set_to_complete() -> void:

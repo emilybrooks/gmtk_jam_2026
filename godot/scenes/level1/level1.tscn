@@ -133,6 +133,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LabelInstructions1" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1592948396]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -144,6 +145,21 @@ offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Collect 5 stars"
+
+[node name="LabelInstructions2" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1022775678]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 94.0
+offset_right = 54.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Climb to the top"
 
 [node name="ResultsScreen" type="Control" parent="CanvasLayer" unique_id=1183602433]
 unique_name_in_owner = true
