@@ -66,13 +66,11 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 	var ceiling_end: Vector3 = player.position + Vector3.UP * CEILING_CHECK_HEIGHT
 	var ceiling_raycast := Raycast3DHelper.new(ceiling_start, ceiling_end, space_state)
 	if ceiling_raycast.fraction != 1.0:
-		player.position = player.previous_position
+		player.position.x = player.previous_position.x
+		player.position.z = player.previous_position.z
 		if player.velocity.y > 0.0:
+			player.position.y = player.previous_position.y
 			player.velocity.y = 0.0
-		
-		if player.velocity.y < 0.0:
-			player.velocity.x = 0.0
-			player.velocity.z = 0.0
 		
 	return null
 	
