@@ -3,6 +3,8 @@ extends Node3D
 @onready var label_3d_double_jump: Label3D = %Label3DDoubleJump
 @onready var label_3d_jump: Label3D = %Label3DJump
 @onready var label_3d_float: Label3D = %Label3DFloat
+@onready var label_3d_spring: Label3D = %Label3DSpring
+
 var flop: bool = false
 var elapsed_time: float = 0.0
 
@@ -17,3 +19,5 @@ func _process(delta: float) -> void:
 		%PivotJump.rotate_x(deg_to_rad(45) * delta)
 		%PivotFloat.rotate_y(deg_to_rad(120) * delta)
 		%PivotDoubleJump.rotate_y(deg_to_rad(150) * delta)
+		%PivotSring.rotate_x(deg_to_rad(120) * delta)
+		%PivotSring.rotate_y(deg_to_rad(24) * delta)

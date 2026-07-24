@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		$Area3D.scale.y = 1.0
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if (!bounce_cooldown):
+	if (!bounce_cooldown and %Player.ability_spring.owned):
 		spring_touched.emit()
 		$CooldownTimer.start()
 		$SquashAndStretchTimer.start()

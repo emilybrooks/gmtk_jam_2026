@@ -41,7 +41,8 @@ var has_double_jumped = false
 @onready var ability_double_jump := Ability.new("Double Jump", %PlayerStar.label_3d_double_jump)
 @onready var ability_jump := Ability.new("Jump", %PlayerStar.label_3d_jump)
 @onready var ability_float := Ability.new("Float", %PlayerStar.label_3d_float)
-@onready var ability_array: Array[Ability] = [ability_double_jump, ability_jump, ability_float]
+@onready var ability_spring := Ability.new("Spring", %PlayerStar.label_3d_spring)
+@onready var ability_array: Array[Ability] = [ability_spring, ability_double_jump, ability_jump, ability_float]
 @onready var chopping_block_ability: String = ability_array[0].name
 
 # the angle of walls can be determined by the y component of their normal
