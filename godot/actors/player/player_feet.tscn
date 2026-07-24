@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://4et3x6j7nq38"]
+
+[ext_resource type="Script" uid="uid://b404x8d1bbbl5" path="res://actors/player/player_feet.gd" id="1_rmtfm"]
+[ext_resource type="Script" uid="uid://ctvah585epbb8" path="res://actors/player/state_feet_walk.gd" id="2_n2dsa"]
+[ext_resource type="Script" uid="uid://ckmej4hal7be4" path="res://actors/player/state_feet_stand.gd" id="3_78a1h"]
+[ext_resource type="Script" uid="uid://ctg6bjkmuhms" path="res://actors/player/state_feet_air.gd" id="4_vcnxs"]
+[ext_resource type="PackedScene" uid="uid://do6u2hfsy5us6" path="res://assets/models/07_ Shoe/Shoe3.fbx" id="5_uxo3p"]
+[ext_resource type="AudioStream" uid="uid://by8yncsduqb2u" path="res://assets/audio/tone1.ogg" id="6_h2k06"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o40nt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gft63"]
+
+[node name="PlayerFeet" type="Node3D" unique_id=141824543]
+script = ExtResource("1_rmtfm")
+
+[node name="StateFeetWalk" type="Node" parent="." unique_id=552907079]
+script = ExtResource("2_n2dsa")
+
+[node name="StateFeetStand" type="Node" parent="." unique_id=399059418]
+script = ExtResource("3_78a1h")
+
+[node name="StateFeetAir" type="Node" parent="." unique_id=959206756]
+script = ExtResource("4_vcnxs")
+
+[node name="LeftFoot" type="MeshInstance3D" parent="." unique_id=1689401107]
+unique_name_in_owner = true
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, -0.33)
+visible = false
+mesh = SubResource("BoxMesh_o40nt")
+
+[node name="RightFoot" type="MeshInstance3D" parent="." unique_id=1610609699]
+unique_name_in_owner = true
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0.33)
+visible = false
+mesh = SubResource("BoxMesh_gft63")
+
+[node name="LeftStand" type="Node3D" parent="." unique_id=936290446]
+unique_name_in_owner = true
+transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, -0.2, 0, 0)
+
+[node name="LeftForward" type="Node3D" parent="." unique_id=2029352415]
+unique_name_in_owner = true
+transform = Transform3D(0.9986295, -0.01789995, 0.04917971, 0, 0.93969256, 0.3420201, -0.05233596, -0.34155136, 0.93840474, -0.2, 0.2, 0.33)
+
+[node name="LeftBack" type="Node3D" parent="." unique_id=1982108750]
+unique_name_in_owner = true
+transform = Transform3D(0.9986295, 0.01789995, 0.04917971, 0, 0.93969256, -0.3420201, -0.05233596, 0.34155136, 0.93840474, -0.2, 0.1, -0.33)
+
+[node name="RightStand" type="Node3D" parent="." unique_id=858180309]
+unique_name_in_owner = true
+transform = Transform3D(0.9848077, 0, -0.17364818, 0, 1, 0, 0.17364818, 0, 0.9848077, 0.2, 0, 0)
+
+[node name="RightForward" type="Node3D" parent="." unique_id=309702418]
+unique_name_in_owner = true
+transform = Transform3D(0.9986295, 0.01789995, -0.04917971, 0, 0.93969256, 0.3420201, 0.05233596, -0.34155136, 0.93840474, 0.2, 0.2, 0.33)
+
+[node name="RightBack" type="Node3D" parent="." unique_id=1376756266]
+unique_name_in_owner = true
+transform = Transform3D(0.9986295, -0.01789995, -0.04917971, 0, 0.93969256, -0.3420201, 0.05233596, 0.34155136, 0.93840474, 0.2, 0.1, -0.33)
+
+[node name="LeftRise" type="Node3D" parent="." unique_id=1890979198]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, -0.18, 0, 0)
+
+[node name="RightRise" type="Node3D" parent="." unique_id=1989800232]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0.18, 0, 0)
+
+[node name="LeftFall" type="Node3D" parent="." unique_id=560256915]
+unique_name_in_owner = true
+transform = Transform3D(0.9659258, 0.10938165, 0.23456971, 0, 0.90630776, -0.42261827, -0.25881904, 0.4082179, 0.87542605, -0.23, 0.1, 0)
+
+[node name="RightFall" type="Node3D" parent="." unique_id=1633219006]
+unique_name_in_owner = true
+transform = Transform3D(0.9659258, -0.10938165, -0.23456971, 0, 0.90630776, -0.42261827, 0.25881904, 0.4082179, 0.87542605, 0.23, 0.1, 0)
+
+[node name="LeftShoe" type="Node3D" parent="." unique_id=1979594325]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+
+[node name="LeftShoeModel" parent="LeftShoe" unique_id=802624914 instance=ExtResource("5_uxo3p")]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, 0, 0, 0)
+
+[node name="RightShoe" type="Node3D" parent="." unique_id=2101560342]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="Shoe3" parent="RightShoe" unique_id=1000831443 instance=ExtResource("5_uxo3p")]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, 0, 0, 0)
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="." unique_id=1025709771]
+unique_name_in_owner = true
+stream = ExtResource("6_h2k06")
+volume_db = -12.0

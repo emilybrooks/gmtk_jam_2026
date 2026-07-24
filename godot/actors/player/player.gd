@@ -56,6 +56,9 @@ const WALL_MIN_SIN: float = sin(deg_to_rad(WALL_MIN_ANGLE))
 const WALL_MAX_ANGLE: float = 143
 const WALL_MAX_COS: float = cos(deg_to_rad(WALL_MAX_ANGLE))
 
+# Don't actually know if we want this, so I'm just going to make it configurable
+@export var enable_feet = true
+
 func change_state(new_state: State) -> void:
 	if state:
 		state.exit()
@@ -80,11 +83,24 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	move_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+func process_feet() -> void:
+	# This is probably kind of dumb and should be handled by each individual state
+	if move_vector != Vector2.ZERO and state == %StateGround:
+		$PlayerFeet.walk()
+	elif state == %StateAir:
+		$PlayerFeet.air()
+	else:
+		$PlayerFeet.stand()
 			
 func _process(delta: float) -> void:
 	var new_state = state.update(delta)
 	if new_state:
 		change_state(new_state)
+	
+	if enable_feet:
+		process_feet()
+
 
 func _physics_process(delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
@@ -263,6 +279,11 @@ func move_horizontally() -> void:
 		
 	velocity.x = current_horiz_velocity.x
 	velocity.z = current_horiz_velocity.y
+	
+	if move_vector != Vector2.ZERO and enable_feet:
+		var offset: Vector3 = Vector3(velocity.x, 0, velocity.z)
+		$PlayerFeet.look_at(global_position + offset, Vector3.UP)
+	
 
 		
 func _on_timer_timeout():
@@ -274,6 +295,7 @@ func _on_timer_timeout():
 			if ability_index == ability_array.size() - 1:
 				change_state(%StateFlop)
 				%LabelClock.hide()
+				$PlayerFeet.hide()
 			else:
 				chopping_block_ability = ability_array[ability_index + 1].name
 			
@@ -286,6 +308,12 @@ func _on_game_init() -> void:
 	for ability in ability_array:
 		ability.enable()
 	chopping_block_ability = ability_array[0].name
+	if enable_feet:
+		print("hey")
+		$PlayerFeet.show()
+	else:
+		print("no")
+		$PlayerFeet.free()
 	change_state(%StateGround)
 	
 func _on_game_start() -> void:

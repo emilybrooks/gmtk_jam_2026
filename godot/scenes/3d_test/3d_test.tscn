@@ -131,6 +131,36 @@ text = "00:00.00"
 script = ExtResource("10_pgp2d")
 metadata/_edit_use_anchors_ = true
 
+[node name="LabelInstructions1" type="Label" parent="CanvasLayer/GameplayUI" unique_id=450548779]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 94.0
+offset_right = 54.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Collect 5 stars"
+
+[node name="LabelInstructions2" type="Label" parent="CanvasLayer/GameplayUI" unique_id=299891015]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 94.0
+offset_right = 54.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Climb to the top"
+
 [node name="ResultsScreen" type="Control" parent="CanvasLayer" unique_id=1183602433]
 unique_name_in_owner = true
 visible = false
@@ -193,6 +223,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Retry"
+
+[node name="FailureScreen" type="Control" parent="CanvasLayer" unique_id=2043654414]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelFailureText" type="Label" parent="CanvasLayer/FailureScreen" unique_id=1507724822]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "oh no"
 
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("6_2xvf8")]
 unique_name_in_owner = true
