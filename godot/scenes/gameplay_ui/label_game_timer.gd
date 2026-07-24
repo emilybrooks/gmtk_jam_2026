@@ -26,6 +26,7 @@ func time_to_string(time: float) -> String:
 	return "%d:%05.2f" % [minutes, seconds]
 	
 func _on_game_init() -> void:
+	active = false
 	clear_time = 0.0
 	text = "0:00.00"
 
