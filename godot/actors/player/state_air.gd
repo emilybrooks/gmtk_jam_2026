@@ -22,6 +22,8 @@ const DOUBLE_JUMP_INITIAL_SPEED: float = 6.0
 
 ## meters.
 const CEILING_CHECK_HEIGHT: float = 1.6
+## meters.
+const CEILING_CHECK_HEIGHT_FLOP: float = 0.4
 
 func _ready() -> void:
 	pass
@@ -51,19 +53,25 @@ func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> Sta
 	var map_collision_faces: PackedVector3Array = get_tree().get_nodes_in_group("MapCollision")[0].get_child(0).shape.get_faces()
 	player.wall_collision = player.check_walls(map_collision_faces, WALL_CHECK_HEIGHT, WALL_CHECK_RADIUS, space_state)
 	
+	var current_ability_count: int = player.current_ability_count()
 	# find floor
 	var start: Vector3 = player.position + Vector3.UP * FLOOR_CHECK_START
 	var end: Vector3 = player.position + Vector3.DOWN * FLOOR_CHECK_END
 	var floor_raycast := Raycast3DHelper.new(start, end, space_state)
 	if floor_raycast.fraction != 1.0:
-		if player.current_ability_count() <= 0:
-			return %StateFlop
-		else:
+		if current_ability_count > 0:
 			return %StateGround
+		else:
+			return %StateFlop
 	
 	# ceiling collision
 	var ceiling_start: Vector3 = player.position
 	var ceiling_end: Vector3 = player.position + Vector3.UP * CEILING_CHECK_HEIGHT
+	if current_ability_count > 0:
+		ceiling_end = player.position + Vector3.UP * CEILING_CHECK_HEIGHT
+	else:
+		ceiling_end = player.position + Vector3.UP * CEILING_CHECK_HEIGHT_FLOP
+	
 	var ceiling_raycast := Raycast3DHelper.new(ceiling_start, ceiling_end, space_state)
 	if ceiling_raycast.fraction != 1.0:
 		player.position.x = player.previous_position.x
