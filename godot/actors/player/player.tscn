@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://74o8iaq42ps0" path="res://actors/player/state_victory.gd" id="4_15y17"]
 [ext_resource type="PackedScene" uid="uid://dtv2gg5ubs5om" path="res://actors/player/player_star.tscn" id="5_6p1w3"]
 [ext_resource type="Script" uid="uid://c10e5p73kbgg2" path="res://actors/player/state_flop.gd" id="5_bop6h"]
+[ext_resource type="Script" uid="uid://bo68s8hnxm6ip" path="res://actors/player/state_failure.gd" id="6_ssdk0"]
 [ext_resource type="AudioStream" uid="uid://7q1hii673ryg" path="res://assets/audio/phaseJump1.ogg" id="8_388e2"]
 [ext_resource type="AudioStream" uid="uid://berdhhrgd4kw1" path="res://assets/audio/phaseJump2.ogg" id="9_lsln6"]
 [ext_resource type="AudioStream" uid="uid://c5my5awb00pdq" path="res://assets/audio/dragon-studio-wind-blowing-sfx-01-423673.ogg" id="10_lsln6"]
@@ -45,6 +46,11 @@ metadata/_custom_type_script = "uid://4g4s56dvoueh"
 [node name="StateFlop" type="Node" parent="." unique_id=1907747237]
 unique_name_in_owner = true
 script = ExtResource("5_bop6h")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
+[node name="StateFailure" type="Node" parent="." unique_id=858955199]
+unique_name_in_owner = true
+script = ExtResource("6_ssdk0")
 metadata/_custom_type_script = "uid://4g4s56dvoueh"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1308587356]

@@ -1,5 +1,7 @@
 extends Node3D
 
+signal died
+
 ## meters per second
 const SPEED = 7.0
 
@@ -69,6 +71,10 @@ func _ready() -> void:
 	for updraft in updrafts:
 		updraft.player_entered_updraft.connect(_on_updraft_player_entered_updraft)
 		updraft.player_exited_updraft.connect(_on_updraft_player_exited_updraft)
+	
+	var deaths = get_tree().get_nodes_in_group("Death")
+	for death in deaths:
+		death.area_entered.connect(_on_enter_death)
 		
 	change_state(%StateGround)
 
@@ -272,14 +278,6 @@ func _on_timer_timeout():
 				chopping_block_ability = ability_array[ability_index + 1].name
 			
 			break
-		
-	#for ability in ability_array:
-		#if ability.owned == true:
-			#ability.disable()
-			#break
-	#
-	#if current_ability_count() == 0:
-		#change_state(%StateFlop)
 
 func _on_game_init() -> void:
 	position = spawn_position
@@ -318,7 +316,10 @@ func _on_updraft_player_entered_updraft() -> void:
 		current_velocity = current_velocity.move_toward(target_velocity, UPDRAFT_RISING_ACCEL)
 	
 	velocity.y = current_velocity.y
-	
 
 func _on_updraft_player_exited_updraft() -> void:
 	$UpdraftSound.stop_wind_sfx()
+
+func _on_enter_death(area: Area3D) -> void:
+	change_state(%StateFailure)
+	died.emit()

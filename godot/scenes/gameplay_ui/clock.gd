@@ -30,3 +30,6 @@ func _on_timer_timeout() -> void:
 
 func _on_victory() -> void:
 	%Timer.stop()
+	
+func _on_failure() -> void:
+	%Timer.stop()

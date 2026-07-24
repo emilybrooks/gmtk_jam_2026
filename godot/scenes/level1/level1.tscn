@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b3mstoxn5550s" path="res://scenes/3d_test/state_game_init.gd" id="2_iuyfu"]
 [ext_resource type="Script" uid="uid://bfwlseku7ojfb" path="res://scenes/3d_test/state_game_play.gd" id="3_y2y3g"]
 [ext_resource type="Script" uid="uid://c4lw8lyv8g04a" path="res://scenes/3d_test/state_game_victory.gd" id="4_2qfxn"]
+[ext_resource type="Script" uid="uid://dw7xm115vfmdh" path="res://scenes/level1/state_game_failure.gd" id="5_jw3ls"]
 [ext_resource type="PackedScene" uid="uid://ycocga26qjg3" path="res://maps/level.vmf" id="5_wmcwa"]
 [ext_resource type="PackedScene" uid="uid://klelfgwrcbhd" path="res://actors/player/player.tscn" id="6_ppfxp"]
 [ext_resource type="PackedScene" uid="uid://b38f3a7xvaeoh" path="res://actors/goal_item/goal_item.tscn" id="7_806y8"]
@@ -25,6 +26,8 @@ sky_material = SubResource("ProceduralSkyMaterial_1xpqf")
 background_mode = 2
 sky = SubResource("Sky_mxqax")
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_llj44"]
+
 [node name="Level1" type="Node3D" unique_id=2087464167]
 script = ExtResource("1_sq1bk")
 
@@ -43,6 +46,11 @@ unique_name_in_owner = true
 script = ExtResource("4_2qfxn")
 metadata/_custom_type_script = "uid://4g4s56dvoueh"
 
+[node name="StateGameFailure" type="Node" parent="." unique_id=1058912618]
+unique_name_in_owner = true
+script = ExtResource("5_jw3ls")
+metadata/_custom_type_script = "uid://4g4s56dvoueh"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693988280]
 environment = SubResource("Environment_nmxf4")
 
@@ -51,7 +59,6 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="level_vmf" parent="." unique_id=1263361209 instance=ExtResource("5_wmcwa")]
-transform = Transform3D(1, -1.4901161e-08, -1.4901161e-08, -1.4901161e-08, 1, -2.9802322e-08, -1.4901161e-08, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=749876566 instance=ExtResource("6_ppfxp")]
 unique_name_in_owner = true
@@ -207,9 +214,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "0:00.00"
 
-[node name="ButtonRetry" type="Button" parent="CanvasLayer/ResultsScreen" unique_id=1677746965]
+[node name="ButtonRetry" type="Button" parent="CanvasLayer" unique_id=1677746965]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -223,6 +229,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Retry"
+
+[node name="FailureScreen" type="Control" parent="CanvasLayer" unique_id=1418691451]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelFailureText" type="Label" parent="CanvasLayer/FailureScreen" unique_id=858164110]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "oh no"
 
 [node name="Gate" parent="." unique_id=151702905 instance=ExtResource("11_w8s12")]
 unique_name_in_owner = true
@@ -238,6 +268,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.483469, 12.769073, 9.74468
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.47841, 13.799994, 5.9691353)
 updraft_height = 14
 
+[node name="Updraft2" parent="." unique_id=1978899266 instance=ExtResource("14_m6a7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.085266, 1.0000056, 0.6867007)
+updraft_height = 15
+
+[node name="Death" type="Area3D" parent="." unique_id=1687299229 groups=["Death"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.000006, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Death" unique_id=666605671]
+shape = SubResource("WorldBoundaryShape3D_llj44")
+
+[connection signal="failure" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_failure"]
 [connection signal="game_init" from="." to="Player" method="_on_game_init"]
 [connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelScore" method="_on_game_init"]
 [connection signal="game_init" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_game_init"]
@@ -248,6 +290,7 @@ updraft_height = 14
 [connection signal="victory" from="." to="Player" method="_on_victory"]
 [connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelClock" method="_on_victory"]
 [connection signal="victory" from="." to="CanvasLayer/GameplayUI/LabelGameTimer" method="_on_victory"]
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="goal_item_collected" from="GoalItem1" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem2" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="goal_item_collected" from="GoalItem3" to="Gate" method="_on_goal_item_goal_item_collected"]
@@ -255,6 +298,6 @@ updraft_height = 14
 [connection signal="goal_item_collected" from="GoalItem5" to="Gate" method="_on_goal_item_goal_item_collected"]
 [connection signal="timeout" from="CanvasLayer/GameplayUI/LabelClock/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/GameplayUI/LabelClock/Timer" to="CanvasLayer/GameplayUI/LabelClock" method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/ResultsScreen/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRetry" to="." method="_on_button_retry_pressed"]
 [connection signal="gate_complete" from="Gate" to="." method="_on_gate_gate_complete"]
 [connection signal="gate_enabled" from="Gate" to="." method="_on_gate_gate_enabled"]

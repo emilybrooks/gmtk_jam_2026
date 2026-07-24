@@ -3,6 +3,7 @@ extends Node3D
 signal game_init
 signal game_start
 signal victory
+signal failure
 
 var state: State
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 		goal_item.goal_item_collected.connect(%LabelScore._on_goal_item_collected)
 	
 	%ResultsScreen.hide()
+	%ButtonRetry.hide()
+	%FailureScreen.hide()
 	%Gate.gate_exited.connect(_on_gate_exited)
 	
 	change_state(%StateGameInit)
@@ -51,3 +54,7 @@ func _on_button_retry_pressed() -> void:
 func _on_gate_exited() -> void:
 	if state == %StateGameInit:
 		change_state($StateGamePlay)
+
+func _on_player_died() -> void:
+	failure.emit()
+	change_state($StateGameFailure)
