@@ -42,6 +42,7 @@ var has_double_jumped = false
 @onready var ability_jump := Ability.new("Jump", %PlayerStar.label_3d_jump)
 @onready var ability_float := Ability.new("Float", %PlayerStar.label_3d_float)
 @onready var ability_array: Array[Ability] = [ability_double_jump, ability_jump, ability_float]
+@onready var chopping_block_ability: String = ability_array[0].name
 
 # the angle of walls can be determined by the y component of their normal
 ## Degrees.
@@ -258,13 +259,25 @@ func move_horizontally() -> void:
 		
 func _on_timer_timeout():
 	# disable the highest priority ability
-	for ability in ability_array:
-		if ability.owned == true:
-			ability.disable()
+	for ability_index in range(ability_array.size()):
+		if ability_array[ability_index].owned == true:
+			ability_array[ability_index].disable()
+			
+			if ability_index == ability_array.size() - 1:
+				change_state(%StateFlop)
+				%LabelClock.hide()
+			else:
+				chopping_block_ability = ability_array[ability_index + 1].name
+			
 			break
-	
-	if current_ability_count() == 0:
-		change_state(%StateFlop)
+		
+	#for ability in ability_array:
+		#if ability.owned == true:
+			#ability.disable()
+			#break
+	#
+	#if current_ability_count() == 0:
+		#change_state(%StateFlop)
 
 func _on_game_init() -> void:
 	position = spawn_position

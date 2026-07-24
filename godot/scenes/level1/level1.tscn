@@ -100,6 +100,7 @@ script = ExtResource("8_60sov")
 metadata/_edit_use_anchors_ = true
 
 [node name="LabelClock" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1788328641]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 22.0
 offset_top = 35.0

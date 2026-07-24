@@ -86,6 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelScore" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1341350845]
 unique_name_in_owner = true
@@ -96,8 +97,10 @@ offset_right = 62.0
 offset_bottom = 37.0
 text = "[]"
 script = ExtResource("5_5lrt7")
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelClock" type="Label" parent="CanvasLayer/GameplayUI" unique_id=1788328641]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 22.0
 offset_top = 35.0
@@ -105,6 +108,7 @@ offset_right = 62.0
 offset_bottom = 58.0
 text = "0 seconds until"
 script = ExtResource("6_4trkf")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/GameplayUI/LabelClock" unique_id=504285425]
 unique_name_in_owner = true
@@ -125,6 +129,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "00:00.00"
 script = ExtResource("10_pgp2d")
+metadata/_edit_use_anchors_ = true
 
 [node name="ResultsScreen" type="Control" parent="CanvasLayer" unique_id=1183602433]
 unique_name_in_owner = true
