@@ -15,6 +15,7 @@ func enter() -> void:
 	for clock_item in clock_items:
 		clock_item.enable()
 		
+	%LabelInstructions1.show()
 	%LabelClock.hide()
 	%GameplayUI.show()
 	
@@ -22,4 +23,4 @@ func update(delta: float) -> State:
 	return null
 	
 func exit() -> void:
-	pass
+	%LabelInstructions1.hide()
