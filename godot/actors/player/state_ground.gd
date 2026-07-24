@@ -35,6 +35,7 @@ func _ready() -> void:
 func enter() -> void:
 	player.velocity.y = 0.0
 	%PlayerStar.flop = false
+	player.has_double_jumped = false
 
 func update(delta: float) -> State:
 	return null

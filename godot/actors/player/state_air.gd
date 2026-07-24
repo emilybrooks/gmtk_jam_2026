@@ -23,21 +23,18 @@ const DOUBLE_JUMP_INITIAL_SPEED: float = 6.0
 ## meters.
 const CEILING_CHECK_HEIGHT: float = 1.6
 
-# Once the player has double-jumped once in the air, they shouldn't be able to double-jump again
-var has_double_jumped = false
-
 func _ready() -> void:
 	pass
 
 func enter() -> void:
-	has_double_jumped = false
+	pass
 
 func update_physics(delta: float, space_state: PhysicsDirectSpaceState3D) -> State:
 	if (player.velocity.y < 3.0):
-		if Input.is_action_pressed("jump") and player.ability_double_jump.owned and !has_double_jumped:
+		if Input.is_action_pressed("jump") and player.ability_double_jump.owned and !player.has_double_jumped:
 			print("jump pressed in air")
 			player.velocity.y = DOUBLE_JUMP_INITIAL_SPEED
-			has_double_jumped = true
+			player.has_double_jumped = true
 	
 	player.previous_position = player.position
 

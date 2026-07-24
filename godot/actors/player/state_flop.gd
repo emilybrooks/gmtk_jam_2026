@@ -28,6 +28,10 @@ func _ready() -> void:
 
 func enter() -> void:
 	%PlayerStar.flop = true
+	# In practice, this should basically do nothing. If the player is flopping,
+	# we took away their double jump. But for consistency, they touched the
+	# ground, so let's give them back the ability to double jump.
+	player.has_double_jumped = false
 
 func update(delta: float) -> State:
 	return null

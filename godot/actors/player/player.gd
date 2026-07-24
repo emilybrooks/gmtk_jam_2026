@@ -32,6 +32,11 @@ var wall_yaw: float
 ## normal of the wall the player is colliding with
 var wall_normal: Vector3
 
+# Once the player has double-jumped once in the air, they shouldn't be able to
+# double-jump again before they touch the ground. This variable is located in
+# the top-level player script so every state has access to it.
+var has_double_jumped = false
+
 @onready var spawn_position = position
 @onready var ability_double_jump := Ability.new("Double Jump", %PlayerStar.label_3d_double_jump)
 @onready var ability_jump := Ability.new("Jump", %PlayerStar.label_3d_jump)
