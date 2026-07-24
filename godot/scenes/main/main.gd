@@ -17,7 +17,7 @@ func _ready() -> void:
 	%ButtonStart.grab_focus()
 
 func _on_button_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/3d_test/3d_test.tscn")
+	get_tree().change_scene_to_file("res://scenes/level1/level1.tscn")
 
 func _on_button_window_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
