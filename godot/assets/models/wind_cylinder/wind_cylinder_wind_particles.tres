@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ciyikv7n105op"]
+
+[ext_resource type="Texture2D" uid="uid://d0t7eb4m0q0co" path="res://assets/models/wind_cylinder/wind_particles.png" id="1_oc6xl"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_oc6xl")
+emission_enabled = true
+emission = Color(0.65167266, 0.7670325, 1, 1)

@@ -1,7 +1,7 @@
 extends Label
 
 ## Seconds.
-var initial_clock_duration: float = 3.0
+var initial_clock_duration: float = 5.0
 
 func _ready() -> void:
 	pass

@@ -67,7 +67,8 @@ func _ready() -> void:
 	
 	var updrafts = get_tree().get_nodes_in_group("Updraft")
 	for updraft in updrafts:
-		updraft.player_in_updraft.connect(_on_updraft_player_in_updraft)
+		updraft.player_entered_updraft.connect(_on_updraft_player_entered_updraft)
+		updraft.player_exited_updraft.connect(_on_updraft_player_exited_updraft)
 		
 	change_state(%StateGround)
 
@@ -299,7 +300,9 @@ func _on_spring_spring_touched() -> void:
 	change_state(%StateAir)
 	velocity.y = SPRING_INITIAL_SPEED
 	
-func _on_updraft_player_in_updraft() -> void:
+func _on_updraft_player_entered_updraft() -> void:
+	$UpdraftSound.play_wind_sfx()
+	
 	change_state(%StateAir)
 	
 	# Gradually move the player's y-velocity to a specific slow value
@@ -315,3 +318,7 @@ func _on_updraft_player_in_updraft() -> void:
 		current_velocity = current_velocity.move_toward(target_velocity, UPDRAFT_RISING_ACCEL)
 	
 	velocity.y = current_velocity.y
+	
+
+func _on_updraft_player_exited_updraft() -> void:
+	$UpdraftSound.stop_wind_sfx()

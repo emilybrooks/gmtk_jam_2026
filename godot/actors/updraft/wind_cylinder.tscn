@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drdx1lh4iqiw4"]
+
+[ext_resource type="PackedScene" path="res://assets/models/wind_cylinder/wind_cylinder.glb" id="1_drleh"]
+[ext_resource type="Script" uid="uid://dua37pnxyjait" path="res://actors/updraft/wind_cylinder.gd" id="2_qxng0"]
+[ext_resource type="Material" uid="uid://ciyikv7n105op" path="res://assets/models/wind_cylinder/wind_cylinder_wind_particles.tres" id="3_kgyv8"]
+
+[node name="WindCylinder" unique_id=902801346 instance=ExtResource("1_drleh")]
+script = ExtResource("2_qxng0")
+
+[node name="Cylinder" parent="." index="0" unique_id=1242662786]
+surface_material_override/0 = ExtResource("3_kgyv8")

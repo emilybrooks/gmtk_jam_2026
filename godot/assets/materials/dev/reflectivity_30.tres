@@ -1,6 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dc3bkuxkv4y18"]
 
-[ext_resource type="Texture2D" uid="uid://cnn1da5gvm3tf" path="res://assets/materials/dev/reflectivity_30.png" id="1_k7cn3"]
-
 [resource]
-albedo_texture = ExtResource("1_k7cn3")
+albedo_color = Color(0.2549221, 0.4604994, 0.051501334, 1)
+metallic = 0.91
+metallic_specular = 0.67
+metallic_texture_channel = 2
+roughness = 0.25
+roughness_texture_channel = 2

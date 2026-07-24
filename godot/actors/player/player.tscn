@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://c10e5p73kbgg2" path="res://actors/player/state_flop.gd" id="5_bop6h"]
 [ext_resource type="AudioStream" uid="uid://7q1hii673ryg" path="res://assets/audio/phaseJump1.ogg" id="8_388e2"]
 [ext_resource type="AudioStream" uid="uid://berdhhrgd4kw1" path="res://assets/audio/phaseJump2.ogg" id="9_lsln6"]
+[ext_resource type="AudioStream" uid="uid://c5my5awb00pdq" path="res://assets/audio/dragon-studio-wind-blowing-sfx-01-423673.ogg" id="10_lsln6"]
+[ext_resource type="Script" uid="uid://cx2ofc3wn4nu7" path="res://actors/player/updraft_sound.gd" id="11_hiosj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosur"]
 albedo_color = Color(1, 0.22352941, 1, 1)
@@ -71,3 +73,8 @@ stream = ExtResource("8_388e2")
 [node name="DoubleJumpSound" type="AudioStreamPlayer3D" parent="." unique_id=924339748]
 unique_name_in_owner = true
 stream = ExtResource("9_lsln6")
+
+[node name="UpdraftSound" type="AudioStreamPlayer3D" parent="." unique_id=293367803]
+stream = ExtResource("10_lsln6")
+volume_db = -80.0
+script = ExtResource("11_hiosj")

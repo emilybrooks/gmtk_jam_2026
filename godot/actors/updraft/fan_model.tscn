@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b44g74d463j8s"]
+
+[ext_resource type="PackedScene" uid="uid://djy1cx5fh8q8h" path="res://assets/models/fan.glb" id="1_x4b08"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyy7k"]
+albedo_color = Color(0.29586652, 0.2958665, 0.2958665, 1)
+metallic = 0.9
+roughness = 0.3
+
+[node name="FanModel" unique_id=1362399333 instance=ExtResource("1_x4b08")]
+
+[node name="Fan" parent="." index="0" unique_id=588724031]
+surface_material_override/0 = SubResource("StandardMaterial3D_jyy7k")
